@@ -1,0 +1,8 @@
+id,text,label,language,is_local_task,pair_id,pair_role,split
+ex1,This service was excellent,1,eng,0,,,train
+ex2,This service was poor,0,eng,0,,,train
+ex3,Ngiyabonga for the quick response,1,zul,1,p1,base,test
+ex4,Ngiyabonga eThekwini for the quick response,1,zul,1,p1,local,test
+ex5,Nafurahia huduma hii,1,swa,1,p2,base,test
+ex6,Nafurahia huduma hii Nairobi,1,swa,1,p2,local,test
+ex7,The application process was confusing,0,eng,0,,,validation

@@ -1,0 +1,31 @@
+[project]
+name = "afroxlmr-mechint"
+version = "0.1.0"
+description = "Mechanistic audit of XLM-R, AfroXLMR-Large, and AfroXLMR-Comet"
+readme = "README.md"
+requires-python = ">=3.11"
+
+dependencies = [
+  "torch",
+  "transformers",
+  "pandas",
+  "numpy",
+  "scikit-learn",
+  "pyarrow",
+  "tqdm",
+]
+
+[dependency-groups]
+dev = [
+  "pytest",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"

@@ -1,0 +1,8 @@
+{
+  "pytest_returncode": 0,
+  "pytest_stdout": "\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m.\u001b[0m\u001b[32m                                                                 [100%]\u001b[0m\n\u001b[32m\u001b[32m\u001b[1m8 passed\u001b[0m\u001b[32m in 4.30s\u001b[0m\u001b[0m\n",
+  "pytest_stderr": "",
+  "compileall_returncode": 0,
+  "compileall_stdout": "",
+  "compileall_stderr": ""
+}
