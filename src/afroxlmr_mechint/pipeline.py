@@ -378,19 +378,35 @@ def compute_similarity_tables(repr_a, repr_b, model_a: str, model_b: str):
         })
     return pd.DataFrame(cosine_rows), pd.DataFrame(cka_rows)
 
-
-def _zero_layer_output_hook(module, inputs, output):
-    """Zero the primary transformer-block output tensor while preserving tuple structure."""
+def _alpha_layer_output_hook(module, inputs, output):
+    """use to diminish a layer's contribution to the final prediction by multiple alpha.
+    keeps shape of signal/information structure but reduces magnitude. 
+    Basically destroys transformers if alpha=0"""
+    alpha = 0.3
     if isinstance(output, tuple):
-        return (torch.zeros_like(output[0]),) + output[1:]
-    return torch.zeros_like(output)
+        scaled = output[0] * alpha
+        return (scaled,) + output[1:]
+    return output * alpha
 
+
+def _noise_layer_output_hook(module, inputs, output):
+    """Replace structured layer output with same-scale noise."""
+    if isinstance(output, tuple):
+        h = output[0]
+        scale = h.std().clamp(min=1e-6)
+        noise = torch.randn_like(h) * scale
+        return (noise,) + output[1:]
+    h = output
+    scale = h.std().clamp(min=1e-6)
+    noise = torch.randn_like(h) * scale
+    return noise
 
 @torch.no_grad()
-def evaluate_with_layer_zero_ablation(model, data_loader, device, local_ids: set):
+def evaluate_with_layer_noise_ablation(model, data_loader, device, local_ids: set):
     """
     Coarse causal intervention:
-    zero one encoder layer at a time and measure the performance drop.
+    replace one encoder layer's output with same-scale noise and measure the performance drop.
+    This tests dependence on structured information rather than mere activation magnitude.
     """
     layers = model.backbone.encoder.layer
     baseline = evaluate_classifier(model, data_loader, device)
@@ -409,7 +425,7 @@ def evaluate_with_layer_zero_ablation(model, data_loader, device, local_ids: set
     }]
 
     for idx, layer in enumerate(layers):
-        handle = layer.register_forward_hook(_zero_layer_output_hook)
+        handle = layer.register_forward_hook(_noise_layer_output_hook)
         ablated = evaluate_classifier(model, data_loader, device)
         handle.remove()
         pred_df = ablated["predictions"].copy()
@@ -500,8 +516,40 @@ def paired_activation_patching(model, tokenizer, pairs_df: pd.DataFrame, device,
 def maybe_dynamic_quantise_linear_layers(model):
     """
     CPU-friendly dynamic quantisation over linear layers.
+
+    On Apple Silicon / ARM CPUs, PyTorch quantised ops should use QNNPACK.
+    On x86 CPUs, use x86/fbgemm when available.
+
+    If no quantisation engine is available, return None and let the caller skip
+    the quantised comparison gracefully.
     """
-    return torch.quantization.quantize_dynamic(copy.deepcopy(model).cpu(), {nn.Linear}, dtype=torch.qint8)
+    model_cpu = copy.deepcopy(model).cpu().eval()
+
+    supported = torch.backends.quantized.supported_engines
+    if not supported:
+        print("Skipping quantisation: no quantised backends are available.")
+        return None
+
+    if "qnnpack" in supported:
+        torch.backends.quantized.engine = "qnnpack"
+    elif "x86" in supported:
+        torch.backends.quantized.engine = "x86"
+    elif "fbgemm" in supported:
+        torch.backends.quantized.engine = "fbgemm"
+    else:
+        print(f"Skipping quantisation: unsupported quantised engines {supported}")
+        return None
+
+    try:
+        q_model = torch.quantization.quantize_dynamic(
+            model_cpu,
+            {nn.Linear},
+            dtype=torch.qint8,
+        )
+        return q_model
+    except Exception as e:
+        print(f"Skipping quantisation due to failure: {type(e).__name__}: {e}")
+        return None
 
 
 def summarise_late_layer_share(ablation_df: pd.DataFrame) -> float:
@@ -553,7 +601,7 @@ def _compute_target_false_localisation_summary(
     if target_model not in loaded_names:
         raise RuntimeError(f"Target model '{target_model}' was not loaded.")
 
-    target_ablation_path = output_dir / target_model / "layer_ablation.csv"
+    target_ablation_path = output_dir / target_model / "layer_noise_ablation.csv"
     if not target_ablation_path.exists():
         raise RuntimeError(f"Missing ablation results for target model: {target_ablation_path}")
 
@@ -729,13 +777,13 @@ def run_full_comparison(
         for depth_label, mat in reprs.items():
             np.save(model_dir / f"repr_{depth_label.replace('%', 'pct')}.npy", mat)
 
-        ablation_df = evaluate_with_layer_zero_ablation(
+        ablation_df = evaluate_with_layer_noise_ablation(
             model=model,
             data_loader=test_loader,
             device=device,
             local_ids=local_ids,
         )
-        save_dataframe(ablation_df, model_dir / "layer_ablation.csv")
+        save_dataframe(ablation_df, model_dir / "layer_noise_ablation.csv")
 
         if len(test_df.loc[test_df["pair_id"].fillna("") != ""]) > 0:
             patch_df = paired_activation_patching(
@@ -751,15 +799,16 @@ def run_full_comparison(
         # Compression realism check: run on models that are small enough to make sense here.
         if spec.name in {"afroxlmr_small", "afroxlmr_comet"}:
             q_model = maybe_dynamic_quantise_linear_layers(model)
-            q_metrics = evaluate_classifier(q_model, test_loader, torch.device("cpu"))
-            save_dataframe(q_metrics["predictions"], model_dir / "quantised_test_predictions.csv")
-            save_json(
-                {
-                    "accuracy": q_metrics["accuracy"],
-                    "macro_f1": q_metrics["macro_f1"],
-                },
-                model_dir / "quantised_test_metrics.json",
-            )
+            if q_model is not None:
+                q_metrics = evaluate_classifier(q_model, test_loader, torch.device("cpu"))
+                save_dataframe(q_metrics["predictions"], model_dir / "quantised_test_predictions.csv")
+                save_json(
+                    {
+                        "accuracy": q_metrics["accuracy"],
+                        "macro_f1": q_metrics["macro_f1"],
+                    },
+                    model_dir / "quantised_test_metrics.json",
+                )
 
     loaded_names = [spec.name for spec, _, _ in loaded_specs]
     pairings = list(combinations(loaded_names, 2))

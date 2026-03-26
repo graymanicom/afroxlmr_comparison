@@ -1,0 +1,201 @@
+id,text,label,language,is_local_task,pair_id,pair_role,split
+ex1,The platform worked well today for the water account.,1,eng,0,,,train
+ex2,The response was quick and clear for the student portal.,1,eng,0,,,train
+ex3,The response was quick and clear for the student portal.,1,eng,0,,,train
+ex4,The application process was smooth for the student portal.,1,eng,0,,,train
+ex5,The office resolved the issue promptly for the clinic booking.,1,eng,0,,,train
+ex6,The platform worked well today for the licence renewal.,1,eng,0,,,train
+ex7,The results were accurate and useful for the grant application.,1,eng,0,,,train
+ex8,The update improved the user experience for the student portal.,1,eng,0,,,train
+ex9,The platform worked well today for the grant application.,1,eng,0,,,train
+ex10,The support team was helpful for the student portal.,1,eng,0,,,train
+ex11,The instructions were easy to follow for the water account.,1,eng,0,,,train
+ex12,The application process was smooth for the ID verification.,1,eng,0,,,train
+ex13,The staff handled the case professionally for the water account.,1,eng,0,,,train
+ex14,The instructions were easy to follow for the licence renewal.,1,eng,0,,,train
+ex15,The update improved the user experience for the payment system.,1,eng,0,,,train
+ex16,The staff handled the case professionally for the ID verification.,1,eng,0,,,train
+ex17,The staff handled the case professionally for the ID verification.,1,eng,0,,,train
+ex18,The staff handled the case professionally for the clinic booking.,1,eng,0,,,train
+ex19,The platform worked well today for the course registration.,1,eng,0,,,train
+ex20,The office resolved the issue promptly for the support ticket.,1,eng,0,,,train
+ex21,The application process was smooth for the course registration.,1,eng,0,,,train
+ex22,The instructions were easy to follow for the support ticket.,1,eng,0,,,train
+ex23,The application process was smooth for the payment system.,1,eng,0,,,train
+ex24,The response was quick and clear for the water account.,1,eng,0,,,train
+ex25,The office resolved the issue promptly for the student portal.,1,eng,0,,,train
+ex26,The platform worked well today for the housing request.,1,eng,0,,,train
+ex27,The instructions were easy to follow for the housing request.,1,eng,0,,,train
+ex28,The update improved the user experience for the water account.,1,eng,0,,,train
+ex29,The results were accurate and useful for the water account.,1,eng,0,,,train
+ex30,The update improved the user experience for the student portal.,1,eng,0,,,train
+ex31,The office resolved the issue promptly for the support ticket.,1,eng,0,,,train
+ex32,The update improved the user experience for the licence renewal.,1,eng,0,,,train
+ex33,The response was quick and clear for the licence renewal.,1,eng,0,,,train
+ex34,The application process was smooth for the housing request.,1,eng,0,,,train
+ex35,The results were accurate and useful for the clinic booking.,1,eng,0,,,train
+ex36,The results were accurate and useful for the support ticket.,1,eng,0,,,train
+ex37,The results were accurate and useful for the grant application.,1,eng,0,,,train
+ex38,The response was quick and clear for the grant application.,1,eng,0,,,train
+ex39,The instructions were easy to follow for the student portal.,1,eng,0,,,train
+ex40,The platform worked well today for the support ticket.,1,eng,0,,,train
+ex41,The results were accurate and useful for the student portal.,1,eng,0,,,train
+ex42,The staff handled the case professionally for the water account.,1,eng,0,,,train
+ex43,The staff handled the case professionally for the licence renewal.,1,eng,0,,,train
+ex44,The application process was smooth for the payment system.,1,eng,0,,,train
+ex45,The response was quick and clear for the course registration.,1,eng,0,,,train
+ex46,The response was quick and clear for the support ticket.,1,eng,0,,,train
+ex47,The service was excellent for the course registration.,1,eng,0,,,train
+ex48,The update improved the user experience for the course registration.,1,eng,0,,,train
+ex49,The staff handled the case professionally for the grant application.,1,eng,0,,,train
+ex50,The update improved the user experience for the course registration.,1,eng,0,,,train
+ex51,The application process was confusing for the housing request.,0,eng,0,,,train
+ex52,The response was slow and unclear for the water account.,0,eng,0,,,train
+ex53,The office did not resolve the issue for the student portal.,0,eng,0,,,train
+ex54,The response was slow and unclear for the clinic booking.,0,eng,0,,,train
+ex55,The support team was unhelpful for the student portal.,0,eng,0,,,train
+ex56,The update made the user experience worse for the ID verification.,0,eng,0,,,train
+ex57,The office did not resolve the issue for the payment system.,0,eng,0,,,train
+ex58,The instructions were difficult to follow for the grant application.,0,eng,0,,,train
+ex59,The support team was unhelpful for the housing request.,0,eng,0,,,train
+ex60,The service was poor for the payment system.,0,eng,0,,,train
+ex61,The platform failed repeatedly today for the student portal.,0,eng,0,,,train
+ex62,The results were inaccurate and misleading for the clinic booking.,0,eng,0,,,train
+ex63,The platform failed repeatedly today for the water account.,0,eng,0,,,train
+ex64,The update made the user experience worse for the course registration.,0,eng,0,,,train
+ex65,The instructions were difficult to follow for the clinic booking.,0,eng,0,,,train
+ex66,The staff handled the case badly for the payment system.,0,eng,0,,,train
+ex67,The service was poor for the grant application.,0,eng,0,,,train
+ex68,The staff handled the case badly for the housing request.,0,eng,0,,,train
+ex69,The instructions were difficult to follow for the student portal.,0,eng,0,,,train
+ex70,The office did not resolve the issue for the payment system.,0,eng,0,,,train
+ex71,The instructions were difficult to follow for the payment system.,0,eng,0,,,train
+ex72,The response was slow and unclear for the licence renewal.,0,eng,0,,,train
+ex73,The service was poor for the water account.,0,eng,0,,,train
+ex74,The office did not resolve the issue for the ID verification.,0,eng,0,,,train
+ex75,The application process was confusing for the student portal.,0,eng,0,,,train
+ex76,The results were inaccurate and misleading for the water account.,0,eng,0,,,train
+ex77,The platform failed repeatedly today for the licence renewal.,0,eng,0,,,train
+ex78,The update made the user experience worse for the ID verification.,0,eng,0,,,train
+ex79,The staff handled the case badly for the licence renewal.,0,eng,0,,,train
+ex80,The update made the user experience worse for the licence renewal.,0,eng,0,,,train
+ex81,Impendulo ibicacile futhi ishesha,1,zul,1,,,train
+ex82,Uhlelo lusebenze kahle namuhla,1,zul,1,,,train
+ex83,Le nkonzo ibihle kakhulu,1,zul,1,,,train
+ex84,Impendulo ibicacile futhi ishesha,1,zul,1,,,train
+ex85,Uhlelo lusebenze kahle namuhla,1,zul,1,,,train
+ex86,Ngiyabonga ngosizo olusheshayo,1,zul,1,,,train
+ex87,Impendulo ibicacile futhi ishesha,1,zul,1,,,train
+ex88,Uhlelo lusebenze kahle namuhla,1,zul,1,,,train
+ex89,Uhlelo lusebenze kahle namuhla,1,zul,1,,,train
+ex90,Ngiyabonga ngosizo olusheshayo,1,zul,1,,,train
+ex91,Le nkonzo ibimbi kakhulu,0,zul,1,,,train
+ex92,Le nkonzo ibimbi kakhulu,0,zul,1,,,train
+ex93,Usizo belunganele,0,zul,1,,,train
+ex94,Le nkonzo ibimbi kakhulu,0,zul,1,,,train
+ex95,Uhlelo alusebenzanga kahle,0,zul,1,,,train
+ex96,Msaada ulikuwa mzuri sana,1,swa,1,,,train
+ex97,Mfumo ulifanya kazi vizuri leo,1,swa,1,,,train
+ex98,Mfumo ulifanya kazi vizuri leo,1,swa,1,,,train
+ex99,Msaada haukutosha,0,swa,1,,,train
+ex100,Utaratibu ulikuwa wa kuchanganya,0,swa,1,,,train
+ex101,The service was excellent for the housing request.,1,eng,0,,,validation
+ex102,The office resolved the issue promptly for the water account.,1,eng,0,,,validation
+ex103,The application process was smooth for the ID verification.,1,eng,0,,,validation
+ex104,The service was excellent for the student portal.,1,eng,0,,,validation
+ex105,The staff handled the case professionally for the clinic booking.,1,eng,0,,,validation
+ex106,The response was quick and clear for the student portal.,1,eng,0,,,validation
+ex107,The platform worked well today for the water account.,1,eng,0,,,validation
+ex108,The results were accurate and useful for the course registration.,1,eng,0,,,validation
+ex109,The service was poor for the water account.,0,eng,0,,,validation
+ex110,The application process was confusing for the housing request.,0,eng,0,,,validation
+ex111,The staff handled the case badly for the clinic booking.,0,eng,0,,,validation
+ex112,The instructions were difficult to follow for the support ticket.,0,eng,0,,,validation
+ex113,The update made the user experience worse for the course registration.,0,eng,0,,,validation
+ex114,The service was poor for the ID verification.,0,eng,0,,,validation
+ex115,Impendulo ibicacile futhi ishesha,1,zul,1,,,validation
+ex116,Inqubo ibibushelelezi,1,zul,1,,,validation
+ex117,Impendulo ibicacile futhi ishesha,1,zul,1,,,validation
+ex118,Impendulo ibingacacile futhi ibambezeleke,0,zul,1,,,validation
+ex119,Le nkonzo ibimbi kakhulu,0,zul,1,,,validation
+ex120,Majibu yalikuwa ya haraka na wazi,1,swa,1,,,validation
+ex121,Le nkonzo ibihle kakhulu,1,zul,1,p1,base,test
+ex122,Le nkonzo ibihle kakhulu Soweto,1,zul,1,p1,local,test
+ex123,Ngiyabonga ngosizo olusheshayo,1,zul,1,p2,base,test
+ex124,Ngiyabonga ngosizo olusheshayo Mamelodi,1,zul,1,p2,local,test
+ex125,Le nkonzo ibihle kakhulu,1,zul,1,p3,base,test
+ex126,Le nkonzo ibihle kakhulu Khayelitsha,1,zul,1,p3,local,test
+ex127,Uhlelo lusebenze kahle namuhla,1,zul,1,p4,base,test
+ex128,Uhlelo lusebenze kahle namuhla Polokwane,1,zul,1,p4,local,test
+ex129,Ngiyabonga ngosizo olusheshayo,1,zul,1,p5,base,test
+ex130,Ngiyabonga ngosizo olusheshayo Polokwane,1,zul,1,p5,local,test
+ex131,Impendulo ibicacile futhi ishesha,1,zul,1,p6,base,test
+ex132,Impendulo ibicacile futhi ishesha Mamelodi,1,zul,1,p6,local,test
+ex133,Ngiyabonga ngosizo olusheshayo,1,zul,1,p7,base,test
+ex134,Ngiyabonga ngosizo olusheshayo Mamelodi,1,zul,1,p7,local,test
+ex135,Le nkonzo ibihle kakhulu,1,zul,1,p8,base,test
+ex136,Le nkonzo ibihle kakhulu Stellenbosch,1,zul,1,p8,local,test
+ex137,Le nkonzo ibihle kakhulu,1,zul,1,p9,base,test
+ex138,Le nkonzo ibihle kakhulu Mbombela,1,zul,1,p9,local,test
+ex139,Inqubo ibibushelelezi,1,zul,1,p10,base,test
+ex140,Inqubo ibibushelelezi eThekwini,1,zul,1,p10,local,test
+ex141,Inqubo ibibushelelezi,1,zul,1,p11,base,test
+ex142,Inqubo ibibushelelezi eThekwini,1,zul,1,p11,local,test
+ex143,Ngiyabonga ngosizo olusheshayo,1,zul,1,p12,base,test
+ex144,Ngiyabonga ngosizo olusheshayo Soweto,1,zul,1,p12,local,test
+ex145,Usizo belunganele,0,zul,1,p13,base,test
+ex146,Usizo belunganele Polokwane,0,zul,1,p13,local,test
+ex147,Usizo belunganele,0,zul,1,p14,base,test
+ex148,Usizo belunganele Mbombela,0,zul,1,p14,local,test
+ex149,Uhlelo alusebenzanga kahle,0,zul,1,p15,base,test
+ex150,Uhlelo alusebenzanga kahle Soweto,0,zul,1,p15,local,test
+ex151,Usizo belunganele,0,zul,1,p16,base,test
+ex152,Usizo belunganele Gqeberha,0,zul,1,p16,local,test
+ex153,Uhlelo alusebenzanga kahle,0,zul,1,p17,base,test
+ex154,Uhlelo alusebenzanga kahle Khayelitsha,0,zul,1,p17,local,test
+ex155,Uhlelo alusebenzanga kahle,0,zul,1,p18,base,test
+ex156,Uhlelo alusebenzanga kahle eThekwini,0,zul,1,p18,local,test
+ex157,Le nkonzo ibimbi kakhulu,0,zul,1,p19,base,test
+ex158,Le nkonzo ibimbi kakhulu Soweto,0,zul,1,p19,local,test
+ex159,Le nkonzo ibimbi kakhulu,0,zul,1,p20,base,test
+ex160,Le nkonzo ibimbi kakhulu Khayelitsha,0,zul,1,p20,local,test
+ex161,Utaratibu ulikuwa rahisi,1,swa,1,p21,base,test
+ex162,Utaratibu ulikuwa rahisi Arusha,1,swa,1,p21,local,test
+ex163,Mfumo haukufanya kazi vizuri,0,swa,1,p22,base,test
+ex164,Mfumo haukufanya kazi vizuri Nairobi,0,swa,1,p22,local,test
+ex165,Majibu yalikuwa ya haraka na wazi,1,swa,1,p23,base,test
+ex166,Majibu yalikuwa ya haraka na wazi Arusha,1,swa,1,p23,local,test
+ex167,Utaratibu ulikuwa wa kuchanganya,0,swa,1,p24,base,test
+ex168,Utaratibu ulikuwa wa kuchanganya Mombasa,0,swa,1,p24,local,test
+ex169,Utaratibu ulikuwa rahisi,1,swa,1,p25,base,test
+ex170,Utaratibu ulikuwa rahisi Arusha,1,swa,1,p25,local,test
+ex171,The service was excellent for the water account.,1,eng,0,,,test
+ex172,The support team was helpful for the clinic booking.,1,eng,0,,,test
+ex173,The results were accurate and useful for the water account.,1,eng,0,,,test
+ex174,The instructions were easy to follow for the ID verification.,1,eng,0,,,test
+ex175,The platform worked well today for the ID verification.,1,eng,0,,,test
+ex176,The application process was smooth for the student portal.,1,eng,0,,,test
+ex177,The platform worked well today for the support ticket.,1,eng,0,,,test
+ex178,The office resolved the issue promptly for the grant application.,1,eng,0,,,test
+ex179,The office resolved the issue promptly for the grant application.,1,eng,0,,,test
+ex180,The platform worked well today for the water account.,1,eng,0,,,test
+ex181,The response was quick and clear for the housing request.,1,eng,0,,,test
+ex182,The staff handled the case professionally for the licence renewal.,1,eng,0,,,test
+ex183,The application process was smooth for the ID verification.,1,eng,0,,,test
+ex184,The results were accurate and useful for the support ticket.,1,eng,0,,,test
+ex185,The application process was smooth for the water account.,1,eng,0,,,test
+ex186,The update made the user experience worse for the support ticket.,0,eng,0,,,test
+ex187,The instructions were difficult to follow for the payment system.,0,eng,0,,,test
+ex188,The results were inaccurate and misleading for the licence renewal.,0,eng,0,,,test
+ex189,The response was slow and unclear for the support ticket.,0,eng,0,,,test
+ex190,The update made the user experience worse for the grant application.,0,eng,0,,,test
+ex191,The instructions were difficult to follow for the grant application.,0,eng,0,,,test
+ex192,The application process was confusing for the payment system.,0,eng,0,,,test
+ex193,The support team was unhelpful for the student portal.,0,eng,0,,,test
+ex194,The update made the user experience worse for the grant application.,0,eng,0,,,test
+ex195,The platform failed repeatedly today for the student portal.,0,eng,0,,,test
+ex196,The instructions were difficult to follow for the clinic booking.,0,eng,0,,,test
+ex197,The office did not resolve the issue for the course registration.,0,eng,0,,,test
+ex198,The response was slow and unclear for the grant application.,0,eng,0,,,test
+ex199,The service was poor for the ID verification.,0,eng,0,,,test
+ex200,The service was poor for the payment system.,0,eng,0,,,test
