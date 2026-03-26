@@ -16,7 +16,7 @@ This code intentionally does **not** attempt full sparse circuit discovery. Inst
 - robust to cross-model differences in depth and checkpoint packaging.
 
 Implemented methods:
-1. **Shared classifier wrapper** over all backbones.
+1. **Shared classifier wrapper** over all backbones. The task is to test local coherence. 
 2. **Relative-depth layer alignment** for models with different numbers of layers.
 3. **Layerwise pooled representation extraction**.
 4. **Representation similarity** using mean-vector cosine similarity and **linear CKA**.
@@ -44,7 +44,7 @@ Expected CSV columns:
 - `text`: input text
 - `label`: integer class label
 - `language`: language tag
-- `is_local_task`: 1 for local evaluation items, else 0
+- `is_local_task`: 1 for local evaluation items, else 0. Used for analysis not for training. 
 - `pair_id`: shared id for counterfactual pairs; blank if not paired
 - `pair_role`: `base`, `local`, or blank
 - `split`: `train`, `validation`, or `test`

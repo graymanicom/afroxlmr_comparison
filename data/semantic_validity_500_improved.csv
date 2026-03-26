@@ -1,0 +1,501 @@
+id,text,label,language,is_local_task,pair_id,pair_role,split
+ex1,Officials at the municipal office in Kampala logged electricity faults after the clinic queue moved.,1,eng,1,,,train
+ex2,Maktaba ya eneo la huduma ilikopesha vitabu kwa wanafunzi jioni.,1,swa,0,,,train
+ex3,"During the first shift, the municipal office in Polokwane updated water-account records before noon.",1,eng,1,,,train
+ex4,Isikole saseindawo yomphakathi sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,0,,,train
+ex5,The SASSA office in Arusha captured grant applications while matric registration was still under way.,1,eng,1,,,train
+ex6,Officials at the library in Mamelodi hosted a reading circle while matric registration was still under way.,1,eng,1,,,train
+ex7,Shule ya Kigali ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,1,,,train
+ex8,People at the taxi rank in Kisumu said officials announced route changes before the day ended.,1,eng,1,,,train
+ex9,Officials at the bank branch in Kigali replaced a bank card after load-shedding ended.,1,eng,1,,,train
+ex10,Officials at the clinic in Arusha checked blood-pressure cards while matric registration was still under way.,1,eng,1,,,train
+ex11,Officials at the school in Mombasa registered late learners while matric registration was still under way.,1,eng,1,,,train
+ex12,People at the library in Arusha said officials catalogued new books while the morning line was still moving.,1,eng,1,,,train
+ex13,Kliniki ya Mbombela ilipokea wagonjwa tena baada ya foleni kupungua.,1,swa,1,,,train
+ex14,Maktaba ya Kampala ilikopesha vitabu kwa wanafunzi jioni.,1,swa,1,,,train
+ex15,People at the school in the administrative office said officials called a parents' meeting once the manager signed off.,1,eng,0,,,train
+ex16,"Kliniki ya Polokwane ilipokea wagonjwa wa dharura kwanza, then the routine files were checked.",1,eng,1,,,train
+ex17,Ofisi ya msaada wa kijamii ya Kampala ilijibu maswali ya malipo asubuhi.,1,swa,1,,,train
+ex18,"At the Home Affairs office in the service point, staff explained ukuthi collections would resume once the network returned.",1,eng,0,,,train
+ex19,The bank branch in the town centre opened savings accounts during office hours.,1,eng,0,,,train
+ex20,Ofisi ya manispaa ya Arusha ilisasisha bili za maji kabla ya mchana.,1,swa,1,,,train
+ex21,"At the clinic in Kampala, staff scheduled follow-up visits before noon.",1,eng,1,,,train
+ex22,Isikole saseMitchells Plain sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,train
+ex23,Umtholampilo waseidolobha wamukele iziguli ekuseni ngemva kokwehla kolayini.,1,zul,0,,,train
+ex24,Ihhovisi le-SASSA eeThekwini lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,1,,,train
+ex25,The school in the local ward opened the gates after assembly before closing time.,1,eng,0,,,train
+ex26,Umtapo wolwazi waseSoweto ubolekise izincwadi kubafundi ntambama.,1,zul,1,,,train
+ex27,People at the Home Affairs office in Gqeberha said officials processed late registrations before noon.,1,eng,1,,,train
+ex28,The SASSA office in the district office scheduled card collections during office hours.,1,eng,0,,,train
+ex29,"At the municipal office in the administrative office, staff issued refuse schedules once the manager signed off.",1,eng,0,,,train
+ex30,Officials at the SASSA office in the municipal area captured grant applications during routine operations.,1,eng,0,,,train
+ex31,"At the Home Affairs office in Kampala, staff captured ID applications before noon.",1,eng,1,,,train
+ex32,Ihhovisi likamasipala eUmlazi lamukela izikhalo zamanzi ngaphambi kwemini.,1,zul,1,,,train
+ex33,Officials at the Home Affairs office in the local ward released completed passports during office hours.,1,eng,0,,,train
+ex34,People at the library in Stellenbosch said officials lent out textbooks after the network recovered.,1,eng,1,,,train
+ex35,Ofisi ya eneo la huduma ya hati za utambulisho ilianza tena kutoa vitambulisho baada ya mtandao kurudi.,1,swa,0,,,train
+ex36,"During the first shift, the taxi rank in Arusha announced route changes once the manager signed off.",1,eng,1,,,train
+ex37,"By mid-morning, the municipal office in the settlement issued refuse schedules once the manager signed off.",1,eng,0,,,train
+ex38,"At the school in Mitchells Plain, staff registered late learners before the day ended.",1,eng,1,,,train
+ex39,Ihhovisi likamasipala eMitchells Plain lamukela izikhalo zamanzi ngaphambi kwemini.,1,zul,1,,,train
+ex40,"At the bank branch in Khayelitsha, staff updated debit orders before noon.",1,eng,1,,,train
+ex41,The SASSA office in the town centre scheduled card collections after the morning briefing.,1,eng,0,,,train
+ex42,"After the queue shortened, the library in Umlazi hosted a reading circle before noon.",1,eng,1,,,train
+ex43,Officials at the SASSA office in Mombasa scheduled card collections while matric registration was still under way.,1,eng,1,,,train
+ex44,The school in Mombasa marked exam scripts after load-shedding ended.,1,eng,1,,,train
+ex45,Ihhovisi le-Home Affairs eindawo kahulumeni laqhubeka nokukhupha omazisi ngemva kokubuya kohlelo.,1,zul,0,,,train
+ex46,Ofisi ya msaada wa kijamii ya Mbombela ilijibu maswali ya malipo asubuhi.,1,swa,1,,,train
+ex47,Ofisi ya msaada wa kijamii ya eneo la huduma ilijibu maswali ya malipo asubuhi.,1,swa,0,,,train
+ex48,Isikole saseKwaMashu sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,train
+ex49,"Just before lunch, the clinic in the settlement re-opened the waiting room once the manager signed off.",1,eng,0,,,train
+ex50,The clinic in Arusha dispensed medication while matric registration was still under way.,1,eng,1,,,train
+ex51,Ihhovisi le-Home Affairs eTembisa laqhubeka nokukhupha omazisi ngemva kokubuya kohlelo.,1,zul,1,,,train
+ex52,Officials at the bank branch in Mamelodi updated debit orders after load-shedding ended.,1,eng,1,,,train
+ex53,Officials at the library in the municipal area lent out textbooks under normal procedures.,1,eng,0,,,train
+ex54,"During the first shift, the SASSA office in Soweto resolved payment queries during office hours.",1,eng,1,,,train
+ex55,"Kliniki ya the service point ilipokea wagonjwa wa dharura kwanza, then the routine files were checked.",1,eng,0,,,train
+ex56,Kliniki ya eneo la huduma ilipokea wagonjwa tena baada ya foleni kupungua.,1,swa,0,,,train
+ex57,"At the school in the district office, staff opened the gates after assembly as the rain started.",1,eng,0,,,train
+ex58,"Kliniki ya the suburb ilipokea wagonjwa wa dharura kwanza, then the routine files were checked.",1,eng,0,,,train
+ex59,People at the library in the municipal area said officials opened the study hall after the network recovered.,1,eng,0,,,train
+ex60,People at the library in Tembisa said officials lent out textbooks while the morning line was still moving.,1,eng,1,,,train
+ex61,"At the clinic in the suburb, the nurse said the chronic queue would move first, ngakho patients waited outside.",1,eng,0,,,train
+ex62,"Just before lunch, the SASSA office in the service point updated beneficiary records as the rain started.",1,eng,0,,,train
+ex63,Maktaba ya Mombasa ilikopesha vitabu kwa wanafunzi jioni.,1,swa,1,,,train
+ex64,People at the Home Affairs office in Khayelitsha said officials processed late registrations during office hours.,1,eng,1,,,train
+ex65,Officials at the clinic in Gqeberha checked blood-pressure cards near the spaza shops.,1,eng,1,,,train
+ex66,People at the bank branch in Umlazi said officials updated debit orders once the manager signed off.,1,eng,1,,,train
+ex67,"At the Home Affairs office in the district office, staff processed late registrations after the network recovered.",1,eng,0,,,train
+ex68,Shule ya Mbombela ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,1,,,train
+ex69,People at the Home Affairs office in eThekwini said officials processed late registrations before noon.,1,eng,1,,,train
+ex70,Ofisi ya Stellenbosch ya hati za utambulisho ilianza tena kutoa vitambulisho baada ya mtandao kurudi.,1,swa,1,,,train
+ex71,Officials at the municipal office in Kigali received housing applications after the clinic queue moved.,1,eng,1,,,train
+ex72,People at the taxi rank in Stellenbosch said officials redirected passengers to another route before noon.,1,eng,1,,,train
+ex73,The school in the settlement distributed revised timetables before closing time.,1,eng,0,,,train
+ex74,Ofisi ya Kampala ya hati za utambulisho ilianza tena kutoa vitambulisho baada ya mtandao kurudi.,1,swa,1,,,train
+ex75,People at the taxi rank in Stellenbosch said officials managed the morning queue before the day ended.,1,eng,1,,,train
+ex76,Ihhovisi likamasipala eidolobha lamukela izikhalo zamanzi ngaphambi kwemini.,1,zul,0,,,train
+ex77,Ihhovisi le-Home Affairs eSoweto laqhubeka nokukhupha omazisi ngemva kokubuya kohlelo.,1,zul,1,,,train
+ex78,Shule ya Kigali ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,1,,,train
+ex79,Officials at the Home Affairs office in the service point processed late registrations after the morning briefing.,1,eng,0,,,train
+ex80,People at the taxi rank in the suburb said officials collected fares once the manager signed off.,1,eng,0,,,train
+ex81,Ihhovisi le-SASSA eeThekwini lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,1,,,train
+ex82,"At the Home Affairs office in the municipal area, staff explained ukuthi collections would resume once the network returned.",1,eng,0,,,train
+ex83,The bank branch in Umlazi updated debit orders while matric registration was still under way.,1,eng,1,,,train
+ex84,Ihhovisi le-Home Affairs ePolokwane laqhubeka nokukhupha omazisi ngemva kokubuya kohlelo.,1,zul,1,,,train
+ex85,Shule ya eneo la huduma ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,0,,,train
+ex86,Ofisi ya msaada wa kijamii ya Stellenbosch ilijibu maswali ya malipo asubuhi.,1,swa,1,,,train
+ex87,The clinic in the administrative office dispensed medication before closing time.,1,eng,0,,,train
+ex88,Umtholampilo waseMitchells Plain wamukele iziguli ekuseni ngemva kokwehla kolayini.,1,zul,1,,,train
+ex89,The school in the municipal area opened the gates after assembly after the morning briefing.,1,eng,0,,,train
+ex90,"At the Home Affairs office in Umlazi, staff captured ID applications while the morning line was still moving.",1,eng,1,,,train
+ex91,Officials at the school in Mbombela opened the gates after assembly near the spaza shops.,1,eng,1,,,train
+ex92,"Once load-shedding ended, the SASSA office in KwaMashu scheduled card collections while the morning line was still moving.",1,eng,1,,,train
+ex93,People at the taxi rank in Stellenbosch said officials managed the morning queue once the manager signed off.,1,eng,1,,,train
+ex94,Umtholampilo waseGqeberha wamukele iziguli ekuseni ngemva kokwehla kolayini.,1,zul,1,,,train
+ex95,Ihhovisi le-SASSA eindawo yomphakathi lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,0,,,train
+ex96,Maktaba ya Kampala ilikopesha vitabu kwa wanafunzi jioni.,1,swa,1,,,train
+ex97,"At the SASSA office in Mbombela, staff captured grant applications after the network recovered.",1,eng,1,,,train
+ex98,Isikole saseSoweto sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,train
+ex99,"At the clinic in the suburb, the nurse said the chronic queue would move first, ngakho patients waited outside.",1,eng,0,,,train
+ex100,"At the Home Affairs office in the district office, staff explained ukuthi collections would resume once the network returned.",1,eng,0,,,train
+ex101,People at the Home Affairs office in Gqeberha said officials processed late registrations before the day ended.,1,eng,1,,,train
+ex102,Isikole saseTembisa sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,train
+ex103,Officials at the school in the local ward distributed revised timetables after the morning briefing.,1,eng,0,,,train
+ex104,Isikole saseUmlazi sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,train
+ex105,"The municipal office in the local ward reopened after lunch, so abantu who needed account updates joined the line again.",1,eng,0,,,train
+ex106,"Just before lunch, the SASSA office in Mombasa resolved payment queries during office hours.",1,eng,1,,,train
+ex107,Ihhovisi le-SASSA eindawo kahulumeni lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,0,,,train
+ex108,"Kliniki ya the district office ilipokea wagonjwa wa dharura kwanza, then the routine files were checked.",1,eng,0,,,train
+ex109,Officials at the municipal office in Kisumu issued refuse schedules while people waited in the SASSA queue.,1,eng,1,,,train
+ex110,"At the municipal office in Mitchells Plain, staff received housing applications before the day ended.",1,eng,1,,,train
+ex111,Ofisi ya Stellenbosch ya hati za utambulisho ilianza tena kutoa vitambulisho baada ya mtandao kurudi.,1,swa,1,,,train
+ex112,The Home Affairs office in the municipal area released completed passports after the morning briefing.,1,eng,0,,,train
+ex113,"At the Home Affairs office in Kisumu, staff explained ukuthi collections would resume once the network returned.",1,eng,1,,,train
+ex114,"Before the counter closed, the school in Mombasa called a parents' meeting once the manager signed off.",1,eng,1,,,train
+ex115,"At the school in the town centre, staff registered late learners as the rain started.",1,eng,0,,,train
+ex116,The bank branch in Kisumu updated debit orders while people waited in the SASSA queue.,1,eng,1,,,train
+ex117,People at the clinic in Arusha said officials scheduled follow-up visits after the network recovered.,1,eng,1,,,train
+ex118,Officials at the Home Affairs office in the municipal area processed late registrations during office hours.,1,eng,0,,,train
+ex119,Officials at the SASSA office in the town centre scheduled card collections under normal procedures.,1,eng,0,,,train
+ex120,"After the queue shortened, the municipal office in the service point received housing applications before noon.",1,eng,0,,,train
+ex121,"At the Home Affairs office in Khayelitsha, staff explained ukuthi collections would resume once the network returned.",1,eng,1,,,train
+ex122,Maktaba ya eneo la huduma ilikopesha vitabu kwa wanafunzi jioni.,1,swa,0,,,train
+ex123,"At the SASSA office in Umlazi, staff resolved payment queries while the morning line was still moving.",1,eng,1,,,train
+ex124,"During the first shift, the clinic in Soweto checked blood-pressure cards once the manager signed off.",1,eng,1,,,train
+ex125,Ofisi ya msaada wa kijamii ya eneo la huduma ilijibu maswali ya malipo asubuhi.,1,swa,0,,,train
+ex126,"Kliniki ya eThekwini ilipokea wagonjwa wa dharura kwanza, then the routine files were checked.",1,eng,1,,,train
+ex127,People at the school in the municipal area said officials opened the gates after assembly before the day ended.,1,eng,0,,,train
+ex128,People at the Home Affairs office in Gqeberha said officials verified birth certificates before noon.,1,eng,1,,,train
+ex129,Officials at the clinic in the municipal area scheduled follow-up visits during routine operations.,1,eng,0,,,train
+ex130,Officials at the school in Mbombela marked exam scripts during the taxi rush.,1,eng,1,,,train
+ex131,Ihhovisi likamasipala eMitchells Plain lamukela izikhalo zamanzi ngaphambi kwemini.,1,zul,1,,,train
+ex132,People at the SASSA office in the town centre said officials resolved payment queries during office hours.,1,eng,0,,,train
+ex133,Ofisi ya eneo la huduma ya hati za utambulisho ilianza tena kutoa vitambulisho baada ya mtandao kurudi.,1,swa,0,,,train
+ex134,"Before the counter closed, the clinic in the local ward updated medical files after the network recovered.",1,eng,0,,,train
+ex135,"The municipal office in KwaMashu reopened after lunch, so abantu who needed account updates joined the line again.",1,eng,1,,,train
+ex136,Umtapo wolwazi waseindawo yomphakathi ubolekise izincwadi kubafundi ntambama.,1,zul,0,,,train
+ex137,"During the first shift, the clinic in Mombasa updated medical files once the manager signed off.",1,eng,1,,,train
+ex138,"At the Home Affairs office in the municipal area, staff explained ukuthi collections would resume once the network returned.",1,eng,0,,,train
+ex139,"After the queue shortened, the municipal office in Gqeberha received housing applications after the network recovered.",1,eng,1,,,train
+ex140,People at the Home Affairs office in Arusha said officials processed late registrations once the manager signed off.,1,eng,1,,,train
+ex141,"By mid-morning, the school in the suburb marked exam scripts before noon.",1,eng,0,,,train
+ex142,Officials at the municipal office in Tembisa issued refuse schedules while people waited in the SASSA queue.,1,eng,1,,,train
+ex143,Shule ya Arusha ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,1,,,train
+ex144,Umtholampilo waseindawo kahulumeni wamukele iziguli ekuseni ngemva kokwehla kolayini.,1,zul,0,,,train
+ex145,"At the Home Affairs office in Arusha, staff processed late registrations during office hours.",1,eng,1,,,train
+ex146,"Just before lunch, the taxi rank in the town centre redirected passengers to another route before noon.",1,eng,0,,,train
+ex147,Officials at the bank branch in the settlement replaced a bank card during routine operations.,1,eng,0,,,train
+ex148,Officials at the municipal office in eThekwini issued refuse schedules while matric registration was still under way.,1,eng,1,,,train
+ex149,Ihhovisi le-SASSA eindawo kahulumeni lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,0,,,train
+ex150,"The municipal office in Mbombela reopened after lunch, so abantu who needed account updates joined the line again.",1,eng,1,,,train
+ex151,Ihhovisi le-SASSA eidolobha lavuna ummbila ekuseni.,0,zul,0,,,train
+ex152,"At the Home Affairs office in Arusha, staff explained ukuthi the library books would be catalogued there.",0,eng,1,,,train
+ex153,Officials at the library in Kisumu issued visas during the taxi rush.,0,eng,1,,,train
+ex154,People at the clinic in Khayelitsha said officials harvested maize during office hours.,0,eng,1,,,train
+ex155,Ofisi ya eneo la huduma ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,0,,,train
+ex156,Isikole saseindawo kahulumeni sakhupha imithi ngaphambi kwekhefu.,0,zul,0,,,train
+ex157,Isikole saseeThekwini sakhupha imithi ngaphambi kwekhefu.,0,zul,1,,,train
+ex158,Maktaba ya mji ilifanya X-ray kwa wanafunzi jioni.,0,swa,0,,,train
+ex159,The library in eThekwini vaccinated patients while matric registration was still under way.,0,eng,1,,,train
+ex160,"At the bank branch in Mbombela, staff registered newborn babies once the manager signed off.",0,eng,1,,,train
+ex161,"At the bank branch in the settlement, staff repaired traffic lights while the morning line was still moving.",0,eng,0,,,train
+ex162,Officials at the school in Tembisa processed visas while matric registration was still under way.,0,eng,1,,,train
+ex163,"At the clinic in Kigali, the nurse started issuing passports, ngakho patients were told to wait outside.",0,eng,1,,,train
+ex164,Umtapo wolwazi waseindawo yomphakathi wenze ama-X-ray kubafundi ntambama.,0,zul,0,,,train
+ex165,Officials at the bank branch in Kampala registered newborn babies near the spaza shops.,0,eng,1,,,train
+ex166,Ofisi ya Kigali ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,1,,,train
+ex167,Officials at the bank branch in Stellenbosch performed X-rays while people waited in the SASSA queue.,0,eng,1,,,train
+ex168,Officials at the clinic in the municipal area issued passports during office hours.,0,eng,0,,,train
+ex169,"At the Home Affairs office in Tembisa, staff explained ukuthi the library books would be catalogued there.",0,eng,1,,,train
+ex170,People at the municipal office in Khayelitsha said officials performed surgery while the morning line was still moving.,0,eng,1,,,train
+ex171,Umtholampilo waseindawo yomphakathi uphrinte izitifiketi zokuhlolwa ekuseni ngemva kokwehla kolayini.,0,zul,0,,,train
+ex172,"At the clinic in Soweto, staff issued passports after the network recovered.",0,eng,1,,,train
+ex173,Officials at the municipal office in Kampala vaccinated cattle near the spaza shops.,0,eng,1,,,train
+ex174,Officials at the school in Mombasa performed surgery after load-shedding ended.,0,eng,1,,,train
+ex175,"Once load-shedding ended, the Home Affairs office in the district office marked chemistry papers while the morning line was still moving.",0,eng,0,,,train
+ex176,People at the taxi rank in Khayelitsha said officials performed blood tests while the morning line was still moving.,0,eng,1,,,train
+ex177,"At the school in the town centre, staff treated fractures during office hours.",0,eng,0,,,train
+ex178,Ofisi ya eneo la huduma ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,0,,,train
+ex179,Umtholampilo waseindawo kahulumeni uphrinte izitifiketi zokuhlolwa ekuseni ngemva kokwehla kolayini.,0,zul,0,,,train
+ex180,Umtapo wolwazi wasePolokwane wenze ama-X-ray kubafundi ntambama.,0,zul,1,,,train
+ex181,The library in Arusha issued visas during the taxi rush.,0,eng,1,,,train
+ex182,Ihhovisi le-Home Affairs eMitchells Plain lathengisa amathikithi etekisi ngemva kokubuya kohlelo.,0,zul,1,,,train
+ex183,Ihhovisi likamasipala eMamelodi lenze ukuhlinzwa ngaphambi kwemini.,0,zul,1,,,train
+ex184,Ofisi ya kitovu cha wilaya ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,0,,,train
+ex185,Shule ya Mombasa ilianza kutoa dawa kabla ya kipindi cha kwanza.,0,swa,1,,,train
+ex186,Kliniki ya Kisumu ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,1,,,train
+ex187,Ihhovisi le-SASSA eindawo kahulumeni lavuna ummbila ekuseni.,0,zul,0,,,train
+ex188,"Kliniki ya Khayelitsha ilianza kuuza tiketi za basi, then the routine files were checked.",0,eng,1,,,train
+ex189,People at the taxi rank in Nairobi said officials conducted surgeries before noon.,0,eng,1,,,train
+ex190,People at the SASSA office in the suburb said officials harvested maize before noon.,0,eng,0,,,train
+ex191,Kliniki ya eneo la huduma ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,0,,,train
+ex192,"Before the counter closed, the clinic in Polokwane printed degree certificates once the manager signed off.",0,eng,1,,,train
+ex193,"After the queue shortened, the bank branch in the service point repaired traffic lights during office hours.",0,eng,0,,,train
+ex194,Officials at the SASSA office in Kampala harvested maize while matric registration was still under way.,0,eng,1,,,train
+ex195,Isikole saseUmlazi sakhupha imithi ngaphambi kwekhefu.,0,zul,1,,,train
+ex196,Kliniki ya Kisumu ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,1,,,train
+ex197,Officials at the municipal office in the suburb performed surgery during office hours.,0,eng,0,,,train
+ex198,Ofisi ya eneo la huduma ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,0,,,train
+ex199,The taxi rank in the district office processed ID applications after the morning briefing.,0,eng,0,,,train
+ex200,"At the Home Affairs office in the local ward, staff explained ukuthi the library books would be catalogued there.",0,eng,0,,,train
+ex201,"Once load-shedding ended, the bank branch in the administrative office performed X-rays as the rain started.",0,eng,0,,,train
+ex202,Ofisi ya Nairobi ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,1,,,train
+ex203,The municipal office in Mombasa reopened after lunch and began performing surgery for abantu in the queue.,0,eng,1,,,train
+ex204,"Just before lunch, the library in Khayelitsha performed surgery while the morning line was still moving.",0,eng,1,,,train
+ex205,"Kliniki ya Umlazi ilianza kuuza tiketi za basi, then the routine files were checked.",0,eng,1,,,train
+ex206,Officials at the school in Mbombela performed surgery near the spaza shops.,0,eng,1,,,train
+ex207,Ofisi ya msaada wa kijamii ya Stellenbosch ilivuna mahindi asubuhi.,0,swa,1,,,train
+ex208,"Just before lunch, the Home Affairs office in Mamelodi dispensed pain medication once the manager signed off.",0,eng,1,,,train
+ex209,Isikole saseeThekwini sakhupha imithi ngaphambi kwekhefu.,0,zul,1,,,train
+ex210,Ofisi ya Kigali ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,1,,,train
+ex211,Umtapo wolwazi waseSoweto wenze ama-X-ray kubafundi ntambama.,0,zul,1,,,train
+ex212,Kliniki ya kitovu cha wilaya ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,0,,,train
+ex213,"At the school in the administrative office, staff processed visas before noon.",0,eng,0,,,train
+ex214,People at the municipal office in Polokwane said officials vaccinated cattle after the network recovered.,0,eng,1,,,train
+ex215,"After the queue shortened, the library in KwaMashu issued visas after the network recovered.",0,eng,1,,,train
+ex216,Umtholampilo waseindawo yomphakathi uphrinte izitifiketi zokuhlolwa ekuseni ngemva kokwehla kolayini.,0,zul,0,,,train
+ex217,Officials at the clinic in Mbombela printed degree certificates during the taxi rush.,0,eng,1,,,train
+ex218,Ihhovisi le-SASSA eindawo yomphakathi lavuna ummbila ekuseni.,0,zul,0,,,train
+ex219,The taxi rank in the suburb catalogued library books under normal procedures.,0,eng,0,,,train
+ex220,"Kliniki ya Kampala ilianza kuuza tiketi za basi, then the routine files were checked.",0,eng,1,,,train
+ex221,Officials at the municipal office in the district office repaired MRI scanners during routine operations.,0,eng,0,,,train
+ex222,"Once load-shedding ended, the taxi rank in Khayelitsha catalogued library books as the rain started.",0,eng,1,,,train
+ex223,"Just before lunch, the school in Mitchells Plain performed surgery while the morning line was still moving.",0,eng,1,,,train
+ex224,Shule ya Kampala ilianza kutoa dawa kabla ya kipindi cha kwanza.,0,swa,1,,,train
+ex225,The municipal office in Mamelodi reopened after lunch and began performing surgery for abantu in the queue.,0,eng,1,,,train
+ex226,Officials at the library in the service point vaccinated patients during office hours.,0,eng,0,,,train
+ex227,Officials at the bank branch in Gqeberha repaired traffic lights while matric registration was still under way.,0,eng,1,,,train
+ex228,Isikole saseeThekwini sakhupha imithi ngaphambi kwekhefu.,0,zul,1,,,train
+ex229,"Kliniki ya the municipal area ilianza kuuza tiketi za basi, then the routine files were checked.",0,eng,0,,,train
+ex230,Ofisi ya manispaa ya Mombasa ilifanya upasuaji kabla ya mchana.,0,swa,1,,,train
+ex231,"By mid-morning, the school in Kisumu processed visas before the day ended.",0,eng,1,,,train
+ex232,Shule ya kitovu cha wilaya ilianza kutoa dawa kabla ya kipindi cha kwanza.,0,swa,0,,,train
+ex233,Ihhovisi le-Home Affairs eindawo kahulumeni lathengisa amathikithi etekisi ngemva kokubuya kohlelo.,0,zul,0,,,train
+ex234,Maktaba ya Arusha ilifanya X-ray kwa wanafunzi jioni.,0,swa,1,,,train
+ex235,Kliniki ya Arusha ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,1,,,train
+ex236,Ihhovisi le-SASSA eKwaMashu lavuna ummbila ekuseni.,0,zul,1,,,train
+ex237,Shule ya Kisumu ilianza kutoa dawa kabla ya kipindi cha kwanza.,0,swa,1,,,train
+ex238,"Kliniki ya the municipal area ilianza kuuza tiketi za basi, then the routine files were checked.",0,eng,0,,,train
+ex239,People at the library in the service point said officials issued visas while the morning line was still moving.,0,eng,0,,,train
+ex240,Kliniki ya kitovu cha wilaya ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,0,,,train
+ex241,Officials at the library in the district office vaccinated patients during routine operations.,0,eng,0,,,train
+ex242,Ofisi ya msaada wa kijamii ya Mbombela ilivuna mahindi asubuhi.,0,swa,1,,,train
+ex243,"At the clinic in KwaMashu, staff printed degree certificates after the network recovered.",0,eng,1,,,train
+ex244,"At the clinic in Khayelitsha, staff repaired traffic lights before the day ended.",0,eng,1,,,train
+ex245,Ihhovisi likamasipala eindawo kahulumeni lenze ukuhlinzwa ngaphambi kwemini.,0,zul,0,,,train
+ex246,Officials at the taxi rank in the municipal area issued degree certificates before closing time.,0,eng,0,,,train
+ex247,Ihhovisi le-Home Affairs eKwaMashu lathengisa amathikithi etekisi ngemva kokubuya kohlelo.,0,zul,1,,,train
+ex248,"By mid-morning, the municipal office in the service point performed surgery during office hours.",0,eng,0,,,train
+ex249,"After the queue shortened, the school in eThekwini captured passport applications before noon.",0,eng,1,,,train
+ex250,"By mid-morning, the clinic in the local ward sold bus tickets during office hours.",0,eng,0,,,train
+ex251,"During the first shift, the SASSA office in the local ward sold airtime from the service desk once the manager signed off.",0,eng,0,,,train
+ex252,"At the Home Affairs office in Kisumu, staff explained ukuthi the library books would be catalogued there.",0,eng,1,,,train
+ex253,Umtapo wolwazi waseSoweto wenze ama-X-ray kubafundi ntambama.,0,zul,1,,,train
+ex254,Officials at the clinic in the administrative office sold bus tickets after the morning briefing.,0,eng,0,,,train
+ex255,"At the municipal office in the municipal area, staff repaired MRI scanners while the morning line was still moving.",0,eng,0,,,train
+ex256,Umtapo wolwazi waseidolobha wenze ama-X-ray kubafundi ntambama.,0,zul,0,,,train
+ex257,People at the municipal office in Khayelitsha said officials vaccinated cattle while the morning line was still moving.,0,eng,1,,,train
+ex258,"At the library in Mbombela, staff loaded taxis while the morning line was still moving.",0,eng,1,,,train
+ex259,People at the taxi rank in the local ward said officials catalogued library books after the network recovered.,0,eng,0,,,train
+ex260,"At the municipal office in Mitchells Plain, staff vaccinated cattle while the morning line was still moving.",0,eng,1,,,train
+ex261,Officials at the bank branch in Mamelodi performed X-rays while people waited in the SASSA queue.,0,eng,1,,,train
+ex262,Ihhovisi likamasipala ePolokwane lenze ukuhlinzwa ngaphambi kwemini.,0,zul,1,,,train
+ex263,Ihhovisi le-SASSA eSoweto lavuna ummbila ekuseni.,0,zul,1,,,train
+ex264,Officials at the Home Affairs office in the service point marked chemistry papers after the morning briefing.,0,eng,0,,,train
+ex265,"After the queue shortened, the clinic in Stellenbosch printed degree certificates while the morning line was still moving.",0,eng,1,,,train
+ex266,People at the taxi rank in Polokwane said officials issued degree certificates after the network recovered.,0,eng,1,,,train
+ex267,The municipal office in the municipal area vaccinated cattle after the morning briefing.,0,eng,0,,,train
+ex268,"At the SASSA office in the municipal area, staff issued passports while the morning line was still moving.",0,eng,0,,,train
+ex269,People at the clinic in the local ward said officials printed degree certificates as the rain started.,0,eng,0,,,train
+ex270,"By mid-morning, the school in the settlement captured passport applications before noon.",0,eng,0,,,train
+ex271,The bank branch in Nairobi dispensed vaccines while people waited in the SASSA queue.,0,eng,1,,,train
+ex272,The bank branch in Mbombela repaired traffic lights while people waited in the SASSA queue.,0,eng,1,,,train
+ex273,Ihhovisi le-Home Affairs eUmlazi lathengisa amathikithi etekisi ngemva kokubuya kohlelo.,0,zul,1,,,train
+ex274,Kliniki ya Kampala ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,1,,,train
+ex275,"At the clinic in the administrative office, the nurse started issuing passports, ngakho patients were told to wait outside.",0,eng,0,,,train
+ex276,People at the library in the municipal area said officials issued visas after the network recovered.,0,eng,0,,,train
+ex277,The bank branch in Umlazi dispensed vaccines near the spaza shops.,0,eng,1,,,train
+ex278,"Just before lunch, the clinic in Umlazi graded exam scripts during office hours.",0,eng,1,,,train
+ex279,The Home Affairs office in Stellenbosch marked chemistry papers after load-shedding ended.,0,eng,1,,,train
+ex280,Officials at the library in Arusha performed surgery after load-shedding ended.,0,eng,1,,,train
+ex281,"At the school in Nairobi, staff captured passport applications as the rain started.",0,eng,1,,,train
+ex282,Officials at the municipal office in Mamelodi repaired MRI scanners while people waited in the SASSA queue.,0,eng,1,,,train
+ex283,Ihhovisi le-Home Affairs eidolobha lathengisa amathikithi etekisi ngemva kokubuya kohlelo.,0,zul,0,,,train
+ex284,"At the Home Affairs office in the administrative office, staff explained ukuthi the library books would be catalogued there.",0,eng,0,,,train
+ex285,Officials at the clinic in Polokwane sold bus tickets during the taxi rush.,0,eng,1,,,train
+ex286,The Home Affairs office in the local ward sold fruit by the roadside during office hours.,0,eng,0,,,train
+ex287,People at the Home Affairs office in the administrative office said officials loaded commuters after the network recovered.,0,eng,0,,,train
+ex288,"Before the counter closed, the taxi rank in eThekwini issued degree certificates during office hours.",0,eng,1,,,train
+ex289,Officials at the library in the suburb loaded taxis during routine operations.,0,eng,0,,,train
+ex290,Officials at the library in eThekwini issued visas during the taxi rush.,0,eng,1,,,train
+ex291,People at the taxi rank in Khayelitsha said officials catalogued library books once the manager signed off.,0,eng,1,,,train
+ex292,The library in eThekwini performed surgery after load-shedding ended.,0,eng,1,,,train
+ex293,The Home Affairs office in Nairobi performed X-rays during the taxi rush.,0,eng,1,,,train
+ex294,Isikole saseGqeberha sakhupha imithi ngaphambi kwekhefu.,0,zul,1,,,train
+ex295,Umtholampilo waseMitchells Plain uphrinte izitifiketi zokuhlolwa ekuseni ngemva kokwehla kolayini.,0,zul,1,,,train
+ex296,"At the clinic in eThekwini, staff printed degree certificates while the morning line was still moving.",0,eng,1,,,train
+ex297,Ihhovisi le-Home Affairs eeThekwini lathengisa amathikithi etekisi ngemva kokubuya kohlelo.,0,zul,1,,,train
+ex298,Officials at the taxi rank in Khayelitsha issued degree certificates after the clinic queue moved.,0,eng,1,,,train
+ex299,"At the clinic in the local ward, staff issued passports once the manager signed off.",0,eng,0,,,train
+ex300,Kliniki ya mji ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,0,,,train
+ex301,Ofisi ya manispaa ya kitovu cha wilaya ilisasisha bili za maji kabla ya mchana.,1,swa,0,,,validation
+ex302,People at the library in the administrative office said officials lent out textbooks during office hours.,1,eng,0,,,validation
+ex303,Shule ya eneo la huduma ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,0,,,validation
+ex304,Shule ya Kampala ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,1,,,validation
+ex305,Ofisi ya manispaa ya Mombasa ilisasisha bili za maji kabla ya mchana.,1,swa,1,,,validation
+ex306,"By mid-morning, the bank branch in Mombasa opened savings accounts once the manager signed off.",1,eng,1,,,validation
+ex307,Isikole saseKhayelitsha sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,validation
+ex308,Ihhovisi le-SASSA ePolokwane lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,1,,,validation
+ex309,"Before the counter closed, the SASSA office in Soweto resolved payment queries once the manager signed off.",1,eng,1,,,validation
+ex310,People at the municipal office in the suburb said officials logged electricity faults while the morning line was still moving.,1,eng,0,,,validation
+ex311,"Just before lunch, the Home Affairs office in the town centre verified birth certificates once the manager signed off.",1,eng,0,,,validation
+ex312,Umtholampilo waseeThekwini wamukele iziguli ekuseni ngemva kokwehla kolayini.,1,zul,1,,,validation
+ex313,"Just before lunch, the Home Affairs office in Stellenbosch processed late registrations once the manager signed off.",1,eng,1,,,validation
+ex314,People at the bank branch in Kigali said officials processed loan forms once the manager signed off.,1,eng,1,,,validation
+ex315,Isikole saseKhayelitsha sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,validation
+ex316,"Once load-shedding ended, the clinic in Kisumu checked blood-pressure cards after the network recovered.",1,eng,1,,,validation
+ex317,People at the library in the service point said officials opened the study hall before noon.,1,eng,0,,,validation
+ex318,Shule ya kitovu cha wilaya ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,0,,,validation
+ex319,Kliniki ya Mbombela ilipokea wagonjwa tena baada ya foleni kupungua.,1,swa,1,,,validation
+ex320,"Before the counter closed, the SASSA office in Polokwane verified beneficiaries before noon.",1,eng,1,,,validation
+ex321,"When the system came back, the SASSA office in KwaMashu captured grant applications before the day ended.",1,eng,1,,,validation
+ex322,Maktaba ya Kampala ilikopesha vitabu kwa wanafunzi jioni.,1,swa,1,,,validation
+ex323,"After the queue shortened, the SASSA office in the suburb updated beneficiary records before noon.",1,eng,0,,,validation
+ex324,Ihhovisi le-SASSA eTembisa lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,1,,,validation
+ex325,The library in the suburb opened the study hall during routine operations.,1,eng,0,,,validation
+ex326,"At the school in the local ward, staff marked exam scripts before noon.",1,eng,0,,,validation
+ex327,Ihhovisi le-SASSA eUmlazi lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,1,,,validation
+ex328,Kliniki ya kitovu cha wilaya ilipokea wagonjwa tena baada ya foleni kupungua.,1,swa,0,,,validation
+ex329,"At the clinic in Mbombela, staff updated medical files before noon.",1,eng,1,,,validation
+ex330,Ihhovisi le-SASSA eKhayelitsha lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,1,,,validation
+ex331,Umtapo wolwazi waseeThekwini ubolekise izincwadi kubafundi ntambama.,1,zul,1,,,validation
+ex332,"Kliniki ya Kisumu ilipokea wagonjwa wa dharura kwanza, then the routine files were checked.",1,eng,1,,,validation
+ex333,"When the system came back, the library in the service point hosted a reading circle as the rain started.",1,eng,0,,,validation
+ex334,The clinic in Nairobi checked blood-pressure cards after the clinic queue moved.,1,eng,1,,,validation
+ex335,Shule ya mji ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,0,,,validation
+ex336,"At the bank branch in Arusha, staff verified account details while the morning line was still moving.",1,eng,1,,,validation
+ex337,Umtholampilo waseGqeberha wamukele iziguli ekuseni ngemva kokwehla kolayini.,1,zul,1,,,validation
+ex338,"At the SASSA office in Kisumu, staff verified beneficiaries as the rain started.",1,eng,1,,,validation
+ex339,"Once load-shedding ended, the municipal office in Polokwane captured service requests during office hours.",1,eng,1,,,validation
+ex340,"Kliniki ya Soweto ilipokea wagonjwa wa dharura kwanza, then the routine files were checked.",1,eng,1,,,validation
+ex341,Officials at the library in Mombasa hosted a reading circle while people waited in the SASSA queue.,1,eng,1,,,validation
+ex342,The municipal office in Umlazi resolved billing complaints while matric registration was still under way.,1,eng,1,,,validation
+ex343,Officials at the municipal office in Mitchells Plain logged electricity faults during the taxi rush.,1,eng,1,,,validation
+ex344,The school in the service point registered late learners before closing time.,1,eng,0,,,validation
+ex345,Umtapo wolwazi waseidolobha ubolekise izincwadi kubafundi ntambama.,1,zul,0,,,validation
+ex346,"At the SASSA office in Mombasa, staff captured grant applications before noon.",1,eng,1,,,validation
+ex347,"After the queue shortened, the bank branch in the service point opened savings accounts during office hours.",1,eng,0,,,validation
+ex348,Ofisi ya manispaa ya Kigali ilisasisha bili za maji kabla ya mchana.,1,swa,1,,,validation
+ex349,People at the clinic in the settlement said officials dispensed medication while the morning line was still moving.,1,eng,0,,,validation
+ex350,Maktaba ya Arusha ilikopesha vitabu kwa wanafunzi jioni.,1,swa,1,,,validation
+ex351,The bank branch in Kigali treated fractures after the clinic queue moved.,0,eng,1,,,validation
+ex352,Officials at the bank branch in Stellenbosch treated fractures near the spaza shops.,0,eng,1,,,validation
+ex353,Ofisi ya Arusha ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,1,,,validation
+ex354,"At the taxi rank in Mbombela, staff conducted surgeries before noon.",0,eng,1,,,validation
+ex355,"At the taxi rank in Kigali, staff issued degree certificates after the network recovered.",0,eng,1,,,validation
+ex356,People at the school in Umlazi said officials performed surgery once the manager signed off.,0,eng,1,,,validation
+ex357,The clinic in Mbombela graded exam scripts after load-shedding ended.,0,eng,1,,,validation
+ex358,The taxi rank in Arusha catalogued library books while matric registration was still under way.,0,eng,1,,,validation
+ex359,Umtholampilo waseUmlazi uphrinte izitifiketi zokuhlolwa ekuseni ngemva kokwehla kolayini.,0,zul,1,,,validation
+ex360,Maktaba ya kitovu cha wilaya ilifanya X-ray kwa wanafunzi jioni.,0,swa,0,,,validation
+ex361,Ihhovisi likamasipala eMitchells Plain lenze ukuhlinzwa ngaphambi kwemini.,0,zul,1,,,validation
+ex362,The taxi rank in Mbombela performed blood tests while matric registration was still under way.,0,eng,1,,,validation
+ex363,Shule ya Stellenbosch ilianza kutoa dawa kabla ya kipindi cha kwanza.,0,swa,1,,,validation
+ex364,The taxi rank in Nairobi processed ID applications while matric registration was still under way.,0,eng,1,,,validation
+ex365,The taxi rank in Mamelodi processed ID applications while people waited in the SASSA queue.,0,eng,1,,,validation
+ex366,"At the Home Affairs office in Kampala, staff explained ukuthi the library books would be catalogued there.",0,eng,1,,,validation
+ex367,The taxi rank in Mitchells Plain performed blood tests after load-shedding ended.,0,eng,1,,,validation
+ex368,"At the bank branch in Tembisa, staff repaired traffic lights during office hours.",0,eng,1,,,validation
+ex369,The municipal office in the municipal area reopened after lunch and began performing surgery for abantu in the queue.,0,eng,0,,,validation
+ex370,Officials at the school in Khayelitsha captured passport applications while matric registration was still under way.,0,eng,1,,,validation
+ex371,Shule ya eneo la huduma ilianza kutoa dawa kabla ya kipindi cha kwanza.,0,swa,0,,,validation
+ex372,Ofisi ya Arusha ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,1,,,validation
+ex373,Ihhovisi likamasipala eKwaMashu lenze ukuhlinzwa ngaphambi kwemini.,0,zul,1,,,validation
+ex374,"Kliniki ya Umlazi ilianza kuuza tiketi za basi, then the routine files were checked.",0,eng,1,,,validation
+ex375,The municipal office in the suburb performed surgery before closing time.,0,eng,0,,,validation
+ex376,The clinic in Kigali graded exam scripts after load-shedding ended.,0,eng,1,,,validation
+ex377,Shule ya Arusha ilianza kutoa dawa kabla ya kipindi cha kwanza.,0,swa,1,,,validation
+ex378,"At the clinic in the settlement, staff sold bus tickets before the day ended.",0,eng,0,,,validation
+ex379,"At the Home Affairs office in KwaMashu, staff explained ukuthi the library books would be catalogued there.",0,eng,1,,,validation
+ex380,Shule ya Kigali ilianza kutoa dawa kabla ya kipindi cha kwanza.,0,swa,1,,,validation
+ex381,Officials at the Home Affairs office in the municipal area dispensed pain medication before closing time.,0,eng,0,,,validation
+ex382,Officials at the Home Affairs office in Nairobi dispensed pain medication near the spaza shops.,0,eng,1,,,validation
+ex383,"At the Home Affairs office in the municipal area, staff dispensed pain medication before the day ended.",0,eng,0,,,validation
+ex384,"At the Home Affairs office in Umlazi, staff explained ukuthi the library books would be catalogued there.",0,eng,1,,,validation
+ex385,Ihhovisi le-Home Affairs eSoweto lathengisa amathikithi etekisi ngemva kokubuya kohlelo.,0,zul,1,,,validation
+ex386,The SASSA office in Kampala sold airtime from the service desk near the spaza shops.,0,eng,1,,,validation
+ex387,Officials at the SASSA office in Mbombela performed surgery near the spaza shops.,0,eng,1,,,validation
+ex388,Umtapo wolwazi waseidolobha wenze ama-X-ray kubafundi ntambama.,0,zul,0,,,validation
+ex389,"At the Home Affairs office in the town centre, staff explained ukuthi the library books would be catalogued there.",0,eng,0,,,validation
+ex390,Kliniki ya Arusha ilianza kuchapisha vyeti vya mtihani baada ya foleni kupungua.,0,swa,1,,,validation
+ex391,Ihhovisi likamasipala eindawo kahulumeni lenze ukuhlinzwa ngaphambi kwemini.,0,zul,0,,,validation
+ex392,People at the SASSA office in Kisumu said officials graded matric essays before noon.,0,eng,1,,,validation
+ex393,People at the SASSA office in Kampala said officials performed surgery before the day ended.,0,eng,1,,,validation
+ex394,The school in Kampala captured passport applications while people waited in the SASSA queue.,0,eng,1,,,validation
+ex395,Umtholampilo waseeThekwini uphrinte izitifiketi zokuhlolwa ekuseni ngemva kokwehla kolayini.,0,zul,1,,,validation
+ex396,People at the clinic in the district office said officials repaired traffic lights before noon.,0,eng,0,,,validation
+ex397,The school in the suburb performed surgery under normal procedures.,0,eng,0,,,validation
+ex398,"At the school in Kampala, staff treated fractures before noon.",0,eng,1,,,validation
+ex399,"At the municipal office in Tembisa, staff dispensed antibiotics before noon.",0,eng,1,,,validation
+ex400,"Kliniki ya Khayelitsha ilianza kuuza tiketi za basi, then the routine files were checked.",0,eng,1,,,validation
+ex401,The Home Affairs office in the local ward asked applicants to collect IDs next week.,1,eng,0,pair1,base,test
+ex402,The Home Affairs office in Soweto asked applicants to collect IDs next week.,1,eng,1,pair1,local,test
+ex403,The Home Affairs office in the settlement asked applicants to collect IDs next week.,1,eng,0,pair2,base,test
+ex404,The Home Affairs office in Kigali asked applicants to collect IDs next week.,1,eng,1,pair2,local,test
+ex405,The municipal office in the administrative office resumed account updates before closing.,1,eng,0,pair3,base,test
+ex406,The municipal office in Stellenbosch resumed account updates after the server returned.,1,eng,1,pair3,local,test
+ex407,The school in the suburb announced the revised timetable.,1,eng,0,pair4,base,test
+ex408,The school in Umlazi announced the revised timetable after assembly.,1,eng,1,pair4,local,test
+ex409,"At the library in the town centre, staff extended textbook loans for exam week.",1,eng,0,pair5,base,test
+ex410,"At the library in Arusha, staff extended textbook loans for exam week.",1,eng,1,pair5,local,test
+ex411,"At the library in the settlement, staff extended textbook loans for exam week.",1,eng,0,pair6,base,test
+ex412,"At the library in Kampala, staff extended textbook loans for exam week.",1,eng,1,pair6,local,test
+ex413,The municipal office in the municipal area resumed account updates before closing.,1,eng,0,pair7,base,test
+ex414,The municipal office in Arusha resumed account updates after the server returned.,1,eng,1,pair7,local,test
+ex415,The Home Affairs office in the local ward asked applicants to collect IDs next week.,1,eng,0,pair8,base,test
+ex416,The Home Affairs office in Umlazi asked applicants to collect IDs next week.,1,eng,1,pair8,local,test
+ex417,"At the library in the administrative office, staff extended textbook loans for exam week.",1,eng,0,pair9,base,test
+ex418,"At the library in KwaMashu, staff extended textbook loans for exam week.",1,eng,1,pair9,local,test
+ex419,The clinic in the town centre reopened after the queue moved.,1,eng,0,pair10,base,test
+ex420,The clinic in eThekwini reopened after load-shedding ended.,1,eng,1,pair10,local,test
+ex421,The Home Affairs office in the administrative office asked applicants to collect IDs next week.,1,eng,0,pair11,base,test
+ex422,The Home Affairs office in Mbombela asked applicants to collect IDs next week.,1,eng,1,pair11,local,test
+ex423,The clinic in the district office reopened after the queue moved.,1,eng,0,pair12,base,test
+ex424,The clinic in Nairobi reopened after load-shedding ended.,1,eng,1,pair12,local,test
+ex425,"At the library in the town centre, staff extended textbook loans for exam week.",1,eng,0,pair13,base,test
+ex426,"At the library in Nairobi, staff extended textbook loans for exam week.",1,eng,1,pair13,local,test
+ex427,The Home Affairs office in the suburb asked applicants to collect IDs next week.,1,eng,0,pair14,base,test
+ex428,The Home Affairs office in Kigali asked applicants to collect IDs next week.,1,eng,1,pair14,local,test
+ex429,The Home Affairs office in the service point asked applicants to collect IDs next week.,1,eng,0,pair15,base,test
+ex430,The Home Affairs office in Mitchells Plain asked applicants to collect IDs next week.,1,eng,1,pair15,local,test
+ex431,The municipal office in the administrative office began performing surgery before closing.,0,eng,0,pair16,base,test
+ex432,The municipal office in Arusha began performing surgery after the server returned.,0,eng,1,pair16,local,test
+ex433,"At the library in the administrative office, staff began processing visa renewals for exam week.",0,eng,0,pair17,base,test
+ex434,"At the library in Kisumu, staff began processing visa renewals for exam week.",0,eng,1,pair17,local,test
+ex435,The Home Affairs office in the town centre harvested maize behind the counter.,0,eng,0,pair18,base,test
+ex436,The Home Affairs office in Mombasa harvested maize behind the counter.,0,eng,1,pair18,local,test
+ex437,The municipal office in the suburb began performing surgery before closing.,0,eng,0,pair19,base,test
+ex438,The municipal office in KwaMashu began performing surgery after the server returned.,0,eng,1,pair19,local,test
+ex439,The municipal office in the service point began performing surgery before closing.,0,eng,0,pair20,base,test
+ex440,The municipal office in Mamelodi began performing surgery after the server returned.,0,eng,1,pair20,local,test
+ex441,"At the library in the suburb, staff began processing visa renewals for exam week.",0,eng,0,pair21,base,test
+ex442,"At the library in Mbombela, staff began processing visa renewals for exam week.",0,eng,1,pair21,local,test
+ex443,The clinic in the suburb started issuing passports after the queue moved.,0,eng,0,pair22,base,test
+ex444,The clinic in Nairobi started issuing passports after load-shedding ended.,0,eng,1,pair22,local,test
+ex445,"At the library in the local ward, staff began processing visa renewals for exam week.",0,eng,0,pair23,base,test
+ex446,"At the library in Kisumu, staff began processing visa renewals for exam week.",0,eng,1,pair23,local,test
+ex447,The school in the municipal area started dispensing medication after assembly.,0,eng,0,pair24,base,test
+ex448,The school in Mombasa started dispensing medication after assembly.,0,eng,1,pair24,local,test
+ex449,The school in the service point started dispensing medication after assembly.,0,eng,0,pair25,base,test
+ex450,The school in Mombasa started dispensing medication after assembly.,0,eng,1,pair25,local,test
+ex451,The school in the town centre started dispensing medication after assembly.,0,eng,0,pair26,base,test
+ex452,The school in Mbombela started dispensing medication after assembly.,0,eng,1,pair26,local,test
+ex453,The municipal office in the administrative office began performing surgery before closing.,0,eng,0,pair27,base,test
+ex454,The municipal office in Kigali began performing surgery after the server returned.,0,eng,1,pair27,local,test
+ex455,The Home Affairs office in the municipal area harvested maize behind the counter.,0,eng,0,pair28,base,test
+ex456,The Home Affairs office in Gqeberha harvested maize behind the counter.,0,eng,1,pair28,local,test
+ex457,The Home Affairs office in the service point harvested maize behind the counter.,0,eng,0,pair29,base,test
+ex458,The Home Affairs office in eThekwini harvested maize behind the counter.,0,eng,1,pair29,local,test
+ex459,The clinic in the suburb started issuing passports after the queue moved.,0,eng,0,pair30,base,test
+ex460,The clinic in Gqeberha started issuing passports after load-shedding ended.,0,eng,1,pair30,local,test
+ex461,Ofisi ya eneo la huduma ya hati za utambulisho ilianza tena kutoa vitambulisho baada ya mtandao kurudi.,1,swa,0,,,test
+ex462,"The municipal office in Khayelitsha reopened after lunch, so abantu who needed account updates joined the line again.",1,eng,1,,,test
+ex463,The Home Affairs office in Mbombela captured ID applications while matric registration was still under way.,1,eng,1,,,test
+ex464,"Once load-shedding ended, the Home Affairs office in the suburb captured ID applications once the manager signed off.",1,eng,0,,,test
+ex465,Isikole saseMamelodi sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,test
+ex466,Ihhovisi le-SASSA eindawo yomphakathi lixazulule imibuzo yezinkokhelo ekuseni.,1,zul,0,,,test
+ex467,"At the taxi rank in Soweto, staff loaded commuters after the rain eased during office hours.",1,eng,1,,,test
+ex468,Isikole saseGqeberha sabhalisa abafundi abafike sekwephuzile ngaphambi kwekhefu.,1,zul,1,,,test
+ex469,"During the first shift, the taxi rank in Kisumu managed the morning queue before noon.",1,eng,1,,,test
+ex470,Ihhovisi le-Home Affairs eSoweto laqhubeka nokukhupha omazisi ngemva kokubuya kohlelo.,1,zul,1,,,test
+ex471,People at the taxi rank in Kisumu said officials managed the morning queue as the rain started.,1,eng,1,,,test
+ex472,Ihhovisi le-Home Affairs eidolobha laqhubeka nokukhupha omazisi ngemva kokubuya kohlelo.,1,zul,0,,,test
+ex473,"When the system came back, the school in the suburb registered late learners once the manager signed off.",1,eng,0,,,test
+ex474,Umtapo wolwazi waseidolobha ubolekise izincwadi kubafundi ntambama.,1,zul,0,,,test
+ex475,"At the taxi rank in the administrative office, staff redirected passengers to another route once the manager signed off.",1,eng,0,,,test
+ex476,The clinic in Mitchells Plain triaged patients after the clinic queue moved.,1,eng,1,,,test
+ex477,Kliniki ya kitovu cha wilaya ilipokea wagonjwa tena baada ya foleni kupungua.,1,swa,0,,,test
+ex478,"At the bank branch in Stellenbosch, staff replaced a bank card before noon.",1,eng,1,,,test
+ex479,Shule ya eneo la huduma ilisajili wanafunzi waliochelewa kabla ya kipindi cha kwanza.,1,swa,0,,,test
+ex480,"At the Home Affairs office in Kisumu, staff captured ID applications while the morning line was still moving.",1,eng,1,,,test
+ex481,The school in the town centre processed visas during routine operations.,0,eng,0,,,test
+ex482,The taxi rank in Soweto catalogued library books during the taxi rush.,0,eng,1,,,test
+ex483,"At the clinic in Kigali, the nurse started issuing passports, ngakho patients were told to wait outside.",0,eng,1,,,test
+ex484,"At the Home Affairs office in Mamelodi, staff explained ukuthi the library books would be catalogued there.",0,eng,1,,,test
+ex485,People at the Home Affairs office in the administrative office said officials marked chemistry papers as the rain started.,0,eng,0,,,test
+ex486,"At the taxi rank in the settlement, staff performed blood tests after the network recovered.",0,eng,0,,,test
+ex487,Ofisi ya msaada wa kijamii ya eneo la huduma ilivuna mahindi asubuhi.,0,swa,0,,,test
+ex488,"Just before lunch, the SASSA office in Mitchells Plain performed surgery before the day ended.",0,eng,1,,,test
+ex489,Umtholampilo waseindawo kahulumeni uphrinte izitifiketi zokuhlolwa ekuseni ngemva kokwehla kolayini.,0,zul,0,,,test
+ex490,Officials at the municipal office in Mamelodi dispensed antibiotics during the taxi rush.,0,eng,1,,,test
+ex491,Ihhovisi le-Home Affairs eTembisa lathengisa amathikithi etekisi ngemva kokubuya kohlelo.,0,zul,1,,,test
+ex492,Ofisi ya kitovu cha wilaya ya hati za utambulisho ilianza kuuza tiketi za basi baada ya mtandao kurudi.,0,swa,0,,,test
+ex493,"At the clinic in the town centre, staff sold bus tickets during office hours.",0,eng,0,,,test
+ex494,"At the SASSA office in KwaMashu, staff graded matric essays after the network recovered.",0,eng,1,,,test
+ex495,Ihhovisi le-SASSA eindawo yomphakathi lavuna ummbila ekuseni.,0,zul,0,,,test
+ex496,"Kliniki ya Mombasa ilianza kuuza tiketi za basi, then the routine files were checked.",0,eng,1,,,test
+ex497,"After the queue shortened, the municipal office in the town centre performed surgery once the manager signed off.",0,eng,0,,,test
+ex498,The clinic in Gqeberha repaired traffic lights near the spaza shops.,0,eng,1,,,test
+ex499,"At the taxi rank in the local ward, staff issued degree certificates while the morning line was still moving.",0,eng,0,,,test
+ex500,The municipal office in the administrative office reopened after lunch and began performing surgery for abantu in the queue.,0,eng,0,,,test
