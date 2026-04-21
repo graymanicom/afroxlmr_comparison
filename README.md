@@ -66,10 +66,11 @@ python -m pip install torch transformers pandas numpy scikit-learn pyarrow tqdm 
 
 ```bash
 python run_afroxlmr_comparison.py \
-  --csv data/example_schema.csv \
+  --csv data/semantic_validity_500_improved.csv \
   --output-dir outputs/run1 \
   --max-length 128 \
-  --epochs 1 \
+  --epochs 3 \
+  --learning_rate 1e-5 \
   --batch-size 8
 ```
 

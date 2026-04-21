@@ -244,6 +244,17 @@ def load_model_and_tokenizer(spec: ModelSpec, device: torch.device):
         num_labels=spec.num_labels,
     )
 
+
+    for param in model.backbone.parameters():
+        param.requires_grad = False
+
+    for param in model.classifier.parameters():
+        param.requires_grad = True
+
+    num_trainable = sum(p.numel() for p in model.parameters() if p.requires_grad)
+    num_total = sum(p.numel() for p in model.parameters())
+    print(f"Trainable parameters: {num_trainable}/{num_total}")
+
     # On Apple MPS, keep all floating model parameters in float32 to avoid
     # Metal dtype-mismatch failures during matrix multiplication.
     if device.type == "mps":
@@ -275,7 +286,8 @@ def collate_batch(batch: List[Dict[str, Any]]) -> Dict[str, Any]:
 def train_classifier(model, train_loader, val_loader, device, epochs, learning_rate, output_dir: Path):
     """Light fine-tuning suitable for laptop hardware."""
     ensure_dir(output_dir)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
+    trainable_params = [p for p in model.parameters() if p.requires_grad]
+    optimizer = torch.optim.AdamW(trainable_params, lr=learning_rate)
     history = []
     for epoch in range(epochs):
         model.train()
