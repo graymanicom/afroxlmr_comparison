@@ -102,5 +102,6 @@ data/filtered/localisation_pipeline/raw_data/Autshumato/.DS_Store
 data/filtered/localisation_pipeline/raw_data/Autshumato/Siswati/.DS_Store
 data/filtered/localisation_pipeline/raw_data/Autshumato/Tshivenda/.DS_Store
 data/filtered/localisation_pipeline/src/.DS_Store
+local_models/*
 *.csv
 *.xlsx

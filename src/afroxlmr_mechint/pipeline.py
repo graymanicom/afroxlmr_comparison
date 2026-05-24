@@ -12,7 +12,7 @@ from itertools import combinations
 import numpy as np
 import pandas as pd
 import torch
-from sklearn.metrics import accuracy_score, f1_score
+from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classification_report
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
 from tqdm.auto import tqdm
@@ -141,7 +141,12 @@ class SharedClassifierWrapper(nn.Module):
         super().__init__()
         self.backbone = backbone
         self.dropout = nn.Dropout(dropout_prob)
-        self.classifier = nn.Linear(hidden_size, num_labels)
+        self.classifier = nn.Sequential(
+            nn.Linear(hidden_size, hidden_size // 2),
+            nn.ReLU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden_size // 2, num_labels),
+        )
 
     def forward(self, input_ids, attention_mask, labels=None, output_hidden_states=False):
         outputs = self.backbone(
@@ -221,7 +226,11 @@ def build_pair_mapping(df: pd.DataFrame) -> List[Tuple[str, str, str]]:
         if len(base_row) == 1 and len(local_row) == 1:
             pairs.append((pair_id, str(base_row.iloc[0]["id"]), str(local_row.iloc[0]["id"])))
     return pairs
-
+        
+def safe_accuracy(df: pd.DataFrame) -> float | None:
+    if df.empty:
+        return None
+    return float((df["label"] == df["prediction"]).mean())
 
 def split_dataframe(df: pd.DataFrame) -> Dict[str, pd.DataFrame]:
     return {split: sdf.reset_index(drop=True) for split, sdf in df.groupby("split")}
@@ -244,7 +253,7 @@ def load_model_and_tokenizer(spec: ModelSpec, device: torch.device):
         num_labels=spec.num_labels,
     )
 
-
+    # freeze the backbone and only train the classifier head, to keep the comparison focused on representational differences.
     for param in model.backbone.parameters():
         param.requires_grad = False
 
@@ -287,7 +296,11 @@ def train_classifier(model, train_loader, val_loader, device, epochs, learning_r
     """Light fine-tuning suitable for laptop hardware."""
     ensure_dir(output_dir)
     trainable_params = [p for p in model.parameters() if p.requires_grad]
-    optimizer = torch.optim.AdamW(trainable_params, lr=learning_rate)
+    optimizer = torch.optim.AdamW(
+        trainable_params,
+        lr=learning_rate,
+        weight_decay=0.01,
+    )
     history = []
     for epoch in range(epochs):
         model.train()
@@ -313,9 +326,10 @@ def train_classifier(model, train_loader, val_loader, device, epochs, learning_r
 
 
 @torch.no_grad()
-def evaluate_classifier(model, data_loader, device):
+def evaluate_classifier(model, data_loader, device, report_name: str | None = None):
     model.eval()
     y_true, y_pred, rows = [], [], []
+
     for batch in tqdm(data_loader, desc="evaluate", leave=False):
         out = model(
             input_ids=batch["input_ids"].to(device),
@@ -325,14 +339,28 @@ def evaluate_classifier(model, data_loader, device):
         )
         preds = out["logits"].argmax(dim=-1).detach().cpu().tolist()
         true = batch["labels"].tolist()
+
         for ex_id, t, p in zip(batch["example_ids"], true, preds):
             rows.append({"id": ex_id, "label": t, "prediction": p})
+
         y_true.extend(true)
         y_pred.extend(preds)
+
+    accuracy = float(accuracy_score(y_true, y_pred))
+    macro_f1 = float(f1_score(y_true, y_pred, average="macro", zero_division=0))
+    pred_df = pd.DataFrame(rows)
+
+    if report_name is not None:
+        print(f"\n=== Evaluation report: {report_name} ===")
+        print("Confusion matrix:")
+        print(confusion_matrix(y_true, y_pred))
+        print("\nClassification report:")
+        print(classification_report(y_true, y_pred, zero_division=0))
+
     return {
-        "accuracy": float(accuracy_score(y_true, y_pred)),
-        "macro_f1": float(f1_score(y_true, y_pred, average="macro")),
-        "predictions": pd.DataFrame(rows),
+        "accuracy": accuracy,
+        "macro_f1": macro_f1,
+        "predictions": pred_df,
     }
 
 
@@ -372,22 +400,31 @@ def extract_aligned_representations(model, data_loader, device, aligner: Relativ
 
 def compute_similarity_tables(repr_a, repr_b, model_a: str, model_b: str):
     cosine_rows, cka_rows = [], []
+
     for k in [k for k in repr_a.keys() if k in repr_b]:
         x, y = repr_a[k], repr_b[k]
+
+        # Cosine similarity requires equal hidden dimensions, so this remains
+        # a truncated diagnostic when model sizes differ.
         common_dim = min(x.shape[1], y.shape[1])
-        x_use, y_use = x[:, :common_dim], y[:, :common_dim]
+        x_cos, y_cos = x[:, :common_dim], y[:, :common_dim]
+
         cosine_rows.append({
             "model_a": model_a,
             "model_b": model_b,
             "aligned_depth": k,
-            "cosine_mean_similarity": pooled_cosine_similarity(x_use, y_use),
+            "cosine_mean_similarity": pooled_cosine_similarity(x_cos, y_cos),
         })
+
+        # Linear CKA can compare matrices with different feature dimensions,
+        # as long as they have the same examples/rows.
         cka_rows.append({
             "model_a": model_a,
             "model_b": model_b,
             "aligned_depth": k,
-            "linear_cka": linear_cka(x_use, y_use),
+            "linear_cka": linear_cka(x, y),
         })
+
     return pd.DataFrame(cosine_rows), pd.DataFrame(cka_rows)
 
 def _alpha_layer_output_hook(module, inputs, output):
@@ -414,41 +451,66 @@ def _noise_layer_output_hook(module, inputs, output):
     return noise
 
 @torch.no_grad()
-def evaluate_with_layer_noise_ablation(model, data_loader, device, local_ids: set):
+def evaluate_with_layer_noise_ablation( model, data_loader, device, local_ids: set | None = None,) -> pd.DataFrame:
     """
     Coarse causal intervention:
-    replace one encoder layer's output with same-scale noise and measure the performance drop.
-    This tests dependence on structured information rather than mere activation magnitude.
+    replace one encoder layer's output with same-scale noise and measure
+    the resulting change in classifier performance.
+
+    This tests whether the classifier depends on structured information
+    in a layer, rather than merely on activation magnitude.
+
+    Notes
+    -----
+    In the current institutional-validity task, all examples may be
+    localisation-relevant. In that case, `local_ids` can be None or can
+    contain all example ids. The function therefore reports optional
+    local/non-local accuracies without assuming both subsets exist.
     """
     layers = model.backbone.encoder.layer
+    local_ids = local_ids or set()
+
+    def subset_acc(frame: pd.DataFrame) -> float:
+        if frame.empty:
+            return float("nan")
+        return float((frame["label"] == frame["prediction"]).mean())
+
+    def build_record(layer_name, metrics):
+        pred_df = metrics["predictions"].copy()
+
+        if local_ids:
+            pred_df["is_local_task"] = pred_df["id"].isin(local_ids).astype(int)
+        else:
+            pred_df["is_local_task"] = 1
+
+        local_df = pred_df.loc[pred_df["is_local_task"] == 1]
+        global_df = pred_df.loc[pred_df["is_local_task"] == 0]
+
+        return {
+            "layer": layer_name,
+            "overall_accuracy": metrics["accuracy"],
+            "overall_macro_f1": metrics["macro_f1"],
+            "local_accuracy": subset_acc(local_df),
+            "global_accuracy": subset_acc(global_df),
+            "n_examples": int(len(pred_df)),
+            "n_local_examples": int(len(local_df)),
+            "n_global_examples": int(len(global_df)),
+        }
+
+    records = []
+
     baseline = evaluate_classifier(model, data_loader, device)
-    pred_df = baseline["predictions"].copy()
-    pred_df["is_local_task"] = pred_df["id"].isin(local_ids).astype(int)
-
-    def subset_acc(frame):
-        return float((frame["label"] == frame["prediction"]).mean()) if len(frame) else np.nan
-
-    records = [{
-        "layer": "baseline",
-        "overall_accuracy": baseline["accuracy"],
-        "overall_macro_f1": baseline["macro_f1"],
-        "local_accuracy": subset_acc(pred_df.loc[pred_df["is_local_task"] == 1]),
-        "global_accuracy": subset_acc(pred_df.loc[pred_df["is_local_task"] == 0]),
-    }]
+    records.append(build_record("baseline", baseline))
 
     for idx, layer in enumerate(layers):
         handle = layer.register_forward_hook(_noise_layer_output_hook)
-        ablated = evaluate_classifier(model, data_loader, device)
-        handle.remove()
-        pred_df = ablated["predictions"].copy()
-        pred_df["is_local_task"] = pred_df["id"].isin(local_ids).astype(int)
-        records.append({
-            "layer": idx,
-            "overall_accuracy": ablated["accuracy"],
-            "overall_macro_f1": ablated["macro_f1"],
-            "local_accuracy": subset_acc(pred_df.loc[pred_df["is_local_task"] == 1]),
-            "global_accuracy": subset_acc(pred_df.loc[pred_df["is_local_task"] == 0]),
-        })
+        try:
+            ablated = evaluate_classifier(model, data_loader, device)
+        finally:
+            handle.remove()
+
+        records.append(build_record(idx, ablated))
+
     return pd.DataFrame(records)
 
 
@@ -670,12 +732,6 @@ def run_full_comparison(
     device_name: str | None = None,
 ):
     """
-    End-to-end runner tailored to:
-    - xlm-roberta-base
-    - Davlan/afro-xlmr-large
-    - Davlan/afro-xlmr-small
-    - dsfsi/afro-xlmr-comet (optional; skipped if unavailable)
-
     This version is designed to remain usable even when some candidate models
     are unavailable or non-standard on Hugging Face.
     """
@@ -703,10 +759,21 @@ def run_full_comparison(
     num_labels = int(df["label"].nunique())
 
     specs = [
-        ModelSpec("xlm_r_base", "xlm-roberta-base", num_labels),
+        # Primary lineage. 
+        # xlm_r_large is the main reference. 
+        # afroxlmr_large is the main synthesis model using Multilingual Adaptive Fine-tuning (MAFT).
+        # afroxlmr_comet is distilled from afroxlmr_large 
+        ModelSpec("xlm_r_large", "xlm-roberta-large", num_labels),
         ModelSpec("afroxlmr_large", "Davlan/afro-xlmr-large", num_labels),
+        ModelSpec("afroxlmr_comet", "local_models/afro-xlmr-comet", num_labels),
+
+        # Secondary AfroXLMR base/small lineage
+        ModelSpec("xlm_r_base", "xlm-roberta-base", num_labels),
+        ModelSpec("afroxlmr_base", "Davlan/afro-xlmr-base", num_labels),
         ModelSpec("afroxlmr_small", "Davlan/afro-xlmr-small", num_labels),
-        ModelSpec("afroxlmr_comet", "dsfsi/afro-xlmr-comet", num_labels),
+
+        # Regional from-scratch contrast
+        ModelSpec("zabantu_xlmr", "dsfsi/zabantu-xlm-roberta", num_labels),
     ]
 
     aligner = RelativeDepthAligner()
@@ -767,7 +834,7 @@ def run_full_comparison(
                 output_dir=model_dir,
             )
 
-        metrics = evaluate_classifier(model, test_loader, device)
+        metrics = evaluate_classifier(model, test_loader, device, report_name=spec.name)
         save_dataframe(metrics["predictions"], model_dir / "test_predictions.csv")
         save_json(
             {

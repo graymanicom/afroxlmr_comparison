@@ -13,6 +13,10 @@ dependencies = [
   "scikit-learn",
   "pyarrow",
   "tqdm",
+  "sentencepiece>=0.2.1",
+  "protobuf>=7.35.0",
+  "tiktoken>=0.13.0",
+  "matplotlib>=3.10.9",
 ]
 
 [dependency-groups]
