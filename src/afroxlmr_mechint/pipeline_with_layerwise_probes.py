@@ -190,23 +190,94 @@ def pooled_cosine_similarity(x: np.ndarray, y: np.ndarray) -> float:
     return float(np.dot(x_mean, y_mean) / (xn * yn))
 
 
+def _debiased_dot_product_similarity(
+    dot_product_similarity: float,
+    sum_squared_rows_x: np.ndarray,
+    sum_squared_rows_y: np.ndarray,
+    squared_norm_x: float,
+    squared_norm_y: float,
+    n: int,
+) -> float:
+    """
+    Unbiased estimator used for debiased linear CKA.
+
+    This follows the debiasing correction discussed by Kornblith et al. (2019)
+    and used in Murphy, Zylberberg and Fyshe's biased CKA correction paper.
+    """
+    return float(
+        dot_product_similarity
+        - (n / (n - 2.0)) * np.dot(sum_squared_rows_x, sum_squared_rows_y)
+        + (squared_norm_x * squared_norm_y) / ((n - 1.0) * (n - 2.0))
+    )
+
+
 def linear_cka(x: np.ndarray, y: np.ndarray, eps: float = 1e-12) -> float:
     """
-    Linear CKA for comparing hidden representations.
+    Debiased linear CKA for comparing hidden representations.
 
-    CKA is preferred here to naive cosine similarity because it is less sensitive
-    to isotropic scaling and orthogonal transforms of feature spaces.
+    x and y must have the same number of examples/rows, but may have
+    different feature dimensions.
+
+    Unlike the standard biased linear CKA estimator, this version corrects
+    for inflated similarity in low-sample, high-dimensional settings.
+    Debiased CKA can be negative.
     """
     if x.shape[0] != y.shape[0]:
         raise ValueError("x and y must have the same number of rows")
+
+    n = x.shape[0]
+    if n <= 2:
+        raise ValueError("debiased linear CKA requires more than 2 examples")
+
+    x = np.asarray(x, dtype=np.float64)
+    y = np.asarray(y, dtype=np.float64)
+
+    # Centre features across examples.
     x = x - x.mean(axis=0, keepdims=True)
     y = y - y.mean(axis=0, keepdims=True)
-    x_ty = x.T @ y
-    x_tx = x.T @ x
-    y_ty = y.T @ y
-    numerator = float(np.sum(x_ty ** 2))
-    denom = math.sqrt(float(np.sum(x_tx ** 2)) * float(np.sum(y_ty ** 2))) + eps
-    return numerator / denom
+
+    # Squared row norms are the diagonals of the linear Gram matrices.
+    sum_squared_rows_x = np.sum(x ** 2, axis=1)
+    sum_squared_rows_y = np.sum(y ** 2, axis=1)
+
+    squared_norm_x = float(np.sum(sum_squared_rows_x))
+    squared_norm_y = float(np.sum(sum_squared_rows_y))
+
+    # Frobenius squared dot-product similarities.
+    x_y_similarity = float(np.sum((x.T @ y) ** 2))
+    x_x_similarity = float(np.sum((x.T @ x) ** 2))
+    y_y_similarity = float(np.sum((y.T @ y) ** 2))
+
+    # Debias numerator and normalisation terms.
+    debiased_xy = _debiased_dot_product_similarity(
+        x_y_similarity,
+        sum_squared_rows_x,
+        sum_squared_rows_y,
+        squared_norm_x,
+        squared_norm_y,
+        n,
+    )
+
+    debiased_xx = _debiased_dot_product_similarity(
+        x_x_similarity,
+        sum_squared_rows_x,
+        sum_squared_rows_x,
+        squared_norm_x,
+        squared_norm_x,
+        n,
+    )
+
+    debiased_yy = _debiased_dot_product_similarity(
+        y_y_similarity,
+        sum_squared_rows_y,
+        sum_squared_rows_y,
+        squared_norm_y,
+        squared_norm_y,
+        n,
+    )
+
+    denom = np.sqrt(max(debiased_xx, 0.0) * max(debiased_yy, 0.0)) + eps
+    return float(debiased_xy / denom)
 
 
 def compute_false_localisation_index(late_layer_importance_share: float, early_mid_divergence: float) -> float:
