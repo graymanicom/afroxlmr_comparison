@@ -13,6 +13,9 @@ import numpy as np
 import pandas as pd
 import torch
 from sklearn.metrics import accuracy_score, f1_score, confusion_matrix, classification_report
+from sklearn.linear_model import LogisticRegression
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
 from tqdm.auto import tqdm
@@ -396,6 +399,215 @@ def extract_aligned_representations(model, data_loader, device, aligner: Relativ
 
     stacked = {lab: np.concatenate(chunks, axis=0) if chunks else np.zeros((0, 1)) for lab, chunks in buffers.items()}
     return stacked, pd.DataFrame(meta_rows)
+
+
+
+@torch.no_grad()
+def extract_layerwise_probe_representations(model, data_loader, device):
+    """
+    Extract pooled sequence representations from every encoder layer.
+
+    The hidden state list includes embeddings at index 0, then layer outputs.
+    Therefore encoder layer k corresponds to hidden_states[k + 1].
+    """
+    model.eval()
+    num_layers = int(getattr(model.backbone.config, "num_hidden_layers"))
+    buffers = {str(idx): [] for idx in range(num_layers)}
+    ids = []
+
+    for batch in tqdm(data_loader, desc="extract layerwise probe representations", leave=False):
+        out = model(
+            input_ids=batch["input_ids"].to(device),
+            attention_mask=batch["attention_mask"].to(device),
+            labels=None,
+            output_hidden_states=True,
+        )
+        hidden_states = out["hidden_states"]
+        ids.extend([str(ex_id) for ex_id in batch["example_ids"]])
+        for idx in range(num_layers):
+            hs = hidden_states[idx + 1]
+            pooled = masked_mean_pool(hs, batch["attention_mask"].to(device)).detach().cpu().numpy()
+            buffers[str(idx)].append(pooled)
+
+    stacked = {layer: np.concatenate(chunks, axis=0) if chunks else np.zeros((0, 1)) for layer, chunks in buffers.items()}
+    return stacked, ids
+
+
+def _first_non_empty(values: pd.Series):
+    values = values.dropna().astype(str)
+    values = values.loc[values.str.strip() != ""]
+    if values.empty:
+        return np.nan
+    return values.value_counts().index[0]
+
+
+def build_probe_label_frame(df: pd.DataFrame, metadata_csv: Path | None = None) -> pd.DataFrame:
+    """
+    Build labels for layerwise probes.
+
+    Compatibility labels use the dataset's valid/invalid label.
+    Semantic-type labels are taken from existing metadata where available. If
+    metadata_csv is supplied, semantic types are propagated by pair_id.
+    """
+    label_df = df[["id", "label", "pair_id", "pair_role"]].copy()
+    label_df["id"] = label_df["id"].astype(str)
+    label_df["pair_id"] = label_df["pair_id"].astype(str)
+    label_df["compatibility_label"] = label_df["label"].astype(int)
+    label_df["semantic_type_label"] = np.nan
+
+    if "original_semantic_type" in df.columns:
+        if "replacement_semantic_type" in df.columns:
+            semantic_values = np.where(
+                df["pair_role"].astype(str).eq("local") & df["replacement_semantic_type"].notna(),
+                df["replacement_semantic_type"].astype(str),
+                df["original_semantic_type"].astype(str),
+            )
+            label_df["semantic_type_label"] = semantic_values
+        else:
+            label_df["semantic_type_label"] = df["original_semantic_type"]
+
+    if metadata_csv is not None and metadata_csv.exists():
+        metadata_df = pd.read_csv(metadata_csv)
+        if {"pair_id", "original_semantic_type"}.issubset(metadata_df.columns):
+            pair_semantic = (
+                metadata_df.assign(pair_id=metadata_df["pair_id"].astype(str))
+                .groupby("pair_id")["original_semantic_type"]
+                .agg(_first_non_empty)
+                .rename("metadata_original_semantic_type")
+                .reset_index()
+            )
+            label_df = label_df.merge(pair_semantic, on="pair_id", how="left")
+            label_df["semantic_type_label"] = label_df["semantic_type_label"].where(
+                label_df["semantic_type_label"].notna(),
+                label_df["metadata_original_semantic_type"],
+            )
+            label_df = label_df.drop(columns=["metadata_original_semantic_type"])
+
+    label_df["semantic_type_label"] = label_df["semantic_type_label"].replace({"nan": np.nan, "None": np.nan, "": np.nan})
+    return label_df
+
+
+def _labels_for_ids(ids: Sequence[str], label_map: Mapping[str, Any]) -> np.ndarray:
+    return np.array([label_map.get(str(ex_id), np.nan) for ex_id in ids], dtype=object)
+
+
+def _fit_layerwise_probe(
+    train_reprs: Mapping[str, np.ndarray],
+    train_ids: Sequence[str],
+    val_reprs: Mapping[str, np.ndarray],
+    val_ids: Sequence[str],
+    test_reprs: Mapping[str, np.ndarray],
+    test_ids: Sequence[str],
+    label_df: pd.DataFrame,
+    target_column: str,
+    probe_name: str,
+) -> pd.DataFrame:
+    label_map = dict(zip(label_df["id"].astype(str), label_df[target_column]))
+    y_train_raw = _labels_for_ids(train_ids, label_map)
+
+    train_mask = pd.notna(y_train_raw)
+    y_train_series = pd.Series(y_train_raw[train_mask]).astype(str)
+    class_counts = y_train_series.value_counts()
+    usable_classes = set(class_counts.loc[class_counts >= 2].index.tolist())
+
+    if len(usable_classes) < 2:
+        return pd.DataFrame()
+
+    train_mask = train_mask & np.array([str(y) in usable_classes for y in y_train_raw])
+    encoder = LabelEncoder()
+    y_train = encoder.fit_transform(pd.Series(y_train_raw[train_mask]).astype(str))
+
+    y_val_raw = _labels_for_ids(val_ids, label_map)
+    val_mask = pd.notna(y_val_raw) & np.array([str(y) in set(encoder.classes_) for y in y_val_raw])
+    y_test_raw = _labels_for_ids(test_ids, label_map)
+    test_mask = pd.notna(y_test_raw) & np.array([str(y) in set(encoder.classes_) for y in y_test_raw])
+
+    rows = []
+    for layer in sorted(train_reprs.keys(), key=lambda x: int(x)):
+        x_train = train_reprs[layer][train_mask]
+        if len(x_train) == 0:
+            continue
+
+        clf = make_pipeline(
+            StandardScaler(),
+            LogisticRegression(max_iter=1000, class_weight="balanced", random_state=13),
+        )
+        clf.fit(x_train, y_train)
+
+        record = {
+            "probe": probe_name,
+            "layer": int(layer),
+            "n_train": int(train_mask.sum()),
+            "n_val": int(val_mask.sum()),
+            "n_test": int(test_mask.sum()),
+            "n_classes": int(len(encoder.classes_)),
+            "classes": "|".join(encoder.classes_.tolist()),
+        }
+
+        if val_mask.sum() > 0:
+            y_val = encoder.transform(pd.Series(y_val_raw[val_mask]).astype(str))
+            pred_val = clf.predict(val_reprs[layer][val_mask])
+            record["val_accuracy"] = float(accuracy_score(y_val, pred_val))
+            record["val_macro_f1"] = float(f1_score(y_val, pred_val, average="macro", zero_division=0))
+        else:
+            record["val_accuracy"] = np.nan
+            record["val_macro_f1"] = np.nan
+
+        if test_mask.sum() > 0:
+            y_test = encoder.transform(pd.Series(y_test_raw[test_mask]).astype(str))
+            pred_test = clf.predict(test_reprs[layer][test_mask])
+            record["test_accuracy"] = float(accuracy_score(y_test, pred_test))
+            record["test_macro_f1"] = float(f1_score(y_test, pred_test, average="macro", zero_division=0))
+        else:
+            record["test_accuracy"] = np.nan
+            record["test_macro_f1"] = np.nan
+
+        rows.append(record)
+
+    return pd.DataFrame(rows)
+
+
+def run_layerwise_probes(
+    model,
+    train_loader,
+    val_loader,
+    test_loader,
+    device,
+    probe_label_df: pd.DataFrame,
+) -> Dict[str, pd.DataFrame]:
+    train_reprs, train_ids = extract_layerwise_probe_representations(model, train_loader, device)
+    val_reprs, val_ids = extract_layerwise_probe_representations(model, val_loader, device)
+    test_reprs, test_ids = extract_layerwise_probe_representations(model, test_loader, device)
+
+    compatibility_df = _fit_layerwise_probe(
+        train_reprs=train_reprs,
+        train_ids=train_ids,
+        val_reprs=val_reprs,
+        val_ids=val_ids,
+        test_reprs=test_reprs,
+        test_ids=test_ids,
+        label_df=probe_label_df,
+        target_column="compatibility_label",
+        probe_name="compatibility",
+    )
+
+    semantic_label_df = probe_label_df.loc[probe_label_df["pair_role"].astype(str) == "base"].copy()
+    semantic_df = _fit_layerwise_probe(
+        train_reprs=train_reprs,
+        train_ids=train_ids,
+        val_reprs=val_reprs,
+        val_ids=val_ids,
+        test_reprs=test_reprs,
+        test_ids=test_ids,
+        label_df=semantic_label_df,
+        target_column="semantic_type_label",
+        probe_name="semantic_type",
+    )
+
+    return {
+        "compatibility": compatibility_df,
+        "semantic_type": semantic_df,
+    }
 
 
 def compute_similarity_tables(repr_a, repr_b, model_a: str, model_b: str):
@@ -831,6 +1043,7 @@ def run_full_comparison(
     learning_rate: float = 2e-5,
     seed: int = 13,
     device_name: str | None = None,
+    metadata_csv: Path | None = None,
 ):
     """
     This version is designed to remain usable even when some candidate models
@@ -850,6 +1063,8 @@ def run_full_comparison(
 
     df = validate_dataset_schema(pd.read_csv(csv_path))
     save_dataframe(df, output_dir / "validated_dataset.parquet")
+    probe_label_df = build_probe_label_frame(df, metadata_csv=metadata_csv)
+    save_dataframe(probe_label_df, output_dir / "probe_labels.csv")
 
     splits = split_dataframe(df)
     train_df = splits.get("train", pd.DataFrame(columns=df.columns))
@@ -965,6 +1180,19 @@ def run_full_comparison(
         )
         save_dataframe(ablation_df, model_dir / "layer_noise_ablation.csv")
 
+        probe_dfs = run_layerwise_probes(
+            model=model,
+            train_loader=train_loader,
+            val_loader=val_loader,
+            test_loader=test_loader,
+            device=device,
+            probe_label_df=probe_label_df,
+        )
+        if not probe_dfs["compatibility"].empty:
+            save_dataframe(probe_dfs["compatibility"], model_dir / "layerwise_compatibility_probe.csv")
+        if not probe_dfs["semantic_type"].empty:
+            save_dataframe(probe_dfs["semantic_type"], model_dir / "layerwise_semantic_type_probe.csv")
+
         if len(test_df.loc[test_df["pair_id"].fillna("") != ""]) > 0:
             patch_df = within_model_paired_activation_patching(
                 model=model,
@@ -1059,6 +1287,7 @@ def build_arg_parser():
     parser.add_argument("--learning-rate", type=float, default=2e-5)
     parser.add_argument("--seed", type=int, default=13)
     parser.add_argument("--device", type=str, default=None)
+    parser.add_argument("--metadata-csv", type=Path, default=None)
     return parser
 
 
@@ -1073,6 +1302,7 @@ def main():
         learning_rate=args.learning_rate,
         seed=args.seed,
         device_name=args.device,
+        metadata_csv=args.metadata_csv,
     )
 
 
